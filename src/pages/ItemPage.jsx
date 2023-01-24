@@ -1,45 +1,73 @@
 import React from 'react';
-import 'react-data-grid/lib/styles.css';
-import DataGrid from 'react-data-grid';
-
-import imageGB from '../assets/img/Головка блока.jpg';
+import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './ItemPage.module.scss';
 
-const columns = [
-    {
-        key: 'id',
-        name: '№',
-    },
-    { key: 'title', name: 'Номер' },
-    { key: 'info', name: 'Описание' },
-    { key: 'cart', name: '' }
-];
-
-const rows = [
-    { id: 0, title: '150102-00004A', info: 'BLOCKASSY,CYLINDER', cart: 'Заказать' },
-    { id: 1, title: '150102-00004A', info: 'BLOCKASSY,CYLINDER', cart: 'Заказать' },
-    { id: 2, title: '150102-00004A', info: 'BLOCKASSY,CYLINDER', cart: 'Заказать' },
-    { id: 3, title: '150102-00004A', info: 'BLOCKASSY,CYLINDER', cart: 'Заказать' },
-    { id: 4, title: '150102-00004A', info: 'BLOCKASSY,CYLINDER', cart: 'Заказать' },
-    { id: 5, title: '150102-00004A', info: 'BLOCKASSY,CYLINDER', cart: 'Заказать' },
-    { id: 6, title: '150102-00004A', info: 'BLOCKASSY,CYLINDER', cart: 'Заказать' },
-    { id: 7, title: '150102-00004A', info: 'BLOCKASSY,CYLINDER', cart: 'Заказать' },
-    { id: 8, title: '150102-00004A', info: 'BLOCKASSY,CYLINDER', cart: 'Заказать' }
-];
+import { addPartItems } from '../redux/slises/cartSlice';
 
 export default function ItemPage() {
+    const dispatch = useDispatch();
+    const { id } = useParams();
+    const [dataSource, setDataSource] = React.useState([]);
+    const cartItem = useSelector((state) => state.cart.partItems.find((obj) => obj.id === dataSource.parts.id));
+    const addedCount = cartItem ? cartItem.count : 0;
+    React.useEffect(() => {
+        axios.get(`http://213.108.4.86:5000/api/typepart/${id}`)
+            .then((res) => {
+                setDataSource(res.data);
+            });
+    }, [id]);
+
+
+    const handleView = (rowData) => {
+        const partItem = {
+            id: rowData.id,
+            kluch: rowData.key,
+            partsno: rowData.partsno,
+            description: rowData.description,
+        }
+
+        dispatch(addPartItems(partItem));
+
+    };
+
     return (
-        <div className='container'>
+        <div>
 
-            <h2 className="content__title ">Головка блока DX300LCA</h2>
+            <h2 className="content__title ">{dataSource.name} DX300LCA</h2>
+
             <div className={styles.catzap}>
-                <DataGrid columns={columns}
-                    rows={rows}
-                    style={{ minWidth: '10px' }}
-                />
-                <img
+                <Table striped bordered hover size="sm">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Номер</th>
+                            <th>Название</th>
+                            <th>Заказ</th>
 
-                    src={imageGB}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {dataSource.parts && dataSource.parts.map((item) => (
+                            <tr
+                                key={item.id}
+                            >
+                                <td>{item.key}</td>
+                                <td>{item.partsno}</td>
+                                <td>{item.description}</td>
+                                <td><Button onClick={() => handleView(item)} variant="outline-success">
+                                    <span>Добавить</span>
+                                    {addedCount > 0 && <i>{addedCount}</i>}
+                                </Button>{' '}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+                <img
+                    src={`http://localhost:5000/${dataSource.imgurl}`}
                     alt='Рисунок ГБ'
                 />
             </div>

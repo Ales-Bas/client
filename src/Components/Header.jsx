@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 import logoSvg from '../assets/img/logo.svg';
@@ -7,6 +8,8 @@ import telephoneSvg from '../assets/img/telephone.svg';
 import emailSvg from '../assets/img/emailIcon.svg';
 
 export default function Header() {
+    const { partItems } = useSelector((state) => state.cart);
+    const totalCount = partItems.reduce((sum, partItem) => sum + partItem.count, 0);
     return (
         <div className="header">
 
@@ -55,7 +58,7 @@ export default function Header() {
                                 strokeLinejoin="round"
                             />
                         </svg>
-                        <span>3</span>
+                        <span>{totalCount}</span>
                     </Link>
                 </div>
             </div>

@@ -1,19 +1,25 @@
-.root {
-    display: grid;
+.model-item {
+    //display: grid;
     position: relative;
-
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
 }
+
 
 .model-item__title {
     color: aliceblue;
     display: grid;
     justify-content: center;
     align-content: center;
-    width: 250px;
+    font-size: 16px;
+    width: 240px;
     height: 40px;
     background-color: #282828;
     border-radius: 10px;
-
+    margin-bottom: 20px;
+    margin-left: 5px;
+    cursor: pointer;
 
     &:hover {
         border: 2px solid #ffff00;

@@ -8,7 +8,6 @@ import navobr from '../assets/img/Навесное оборудование.jpg'
 export default function Home() {
     return (
         <div className='container'>
-
             <h2 className="content__title">Главная страница титул</h2>
             <div className="content__items">
                 <HomeItem title='Экскаваторы' image={ekskavator} type="/exkavator" />

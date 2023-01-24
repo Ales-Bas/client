@@ -54,7 +54,7 @@ body {
 .cart {
   &__top {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
   }
 
@@ -113,8 +113,9 @@ body {
     display: flex;
     width: 100%;
     border-top: 1px solid $gray-line;
-    padding-top: 30px;
+    padding-top: 15px;
     margin-top: 30px;
+    justify-content: space-around;
 
     &-img {
       display: flex;
@@ -280,6 +281,7 @@ body {
 
   &--empty {
     margin: 0 auto;
+    margin-top: 100px;
     width: 560px;
     text-align: center;
 
