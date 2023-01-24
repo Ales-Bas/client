@@ -15,7 +15,7 @@ export default function ItemPage() {
     const cartItem = useSelector((state) => state.cart.partItems.find((obj) => obj.id === dataSource.parts.id));
     const addedCount = cartItem ? cartItem.count : 0;
     React.useEffect(() => {
-        axios.get(`http://213.108.4.86:5000/api/typepart/${id}`)
+        axios.get(`https://213.108.4.86:5000/api/typepart/${id}`)
             .then((res) => {
                 setDataSource(res.data);
             });

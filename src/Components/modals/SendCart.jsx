@@ -88,7 +88,7 @@ export default function SendCart({ show, onHide, partItems }) {
                     })}
                     onSubmit={(values, { setSubmitting }) => {
                         setTimeout(() => {
-                            axios.post(`http://213.108.4.86:5000/api/cartsend`, values)
+                            axios.post(`https://213.108.4.86:5000/api/cartsend`, values)
                                 .then((res) => {
                                     alert('Ваш заказ успешно добавлен.');
                                 });
