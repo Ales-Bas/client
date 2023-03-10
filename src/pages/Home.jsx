@@ -7,13 +7,22 @@ import navobr from '../assets/img/Навесное оборудование.jpg'
 
 export default function Home() {
     return (
-        <div className='container'>
-            <h2 className="content__title">Главная страница титул</h2>
-            <div className="content__items">
-                <HomeItem title='Экскаваторы' image={ekskavator} type="/exkavator" />
-                <HomeItem title='Погрузчики' image={pogruzchik} />
-                <HomeItem title='Навесное оборудование' image={navobr} />
+        <section className='main__home'>
+            <div className='main-background'>
+                <div className="container">
+                    <div className="home__teaser">
+                        <h1 className="content__title">Главная страница титул</h1>
+                        <p>Lorem ipsum</p>
+                    </div>
+                </div>
+            </div >
+            <div className='container'>
+                <div className="content__items">
+                    <HomeItem title='Каталог техники Doosan' image={ekskavator} type="/tkatalog" />
+                    <HomeItem title='Каталог запчастей Doosan' image={pogruzchik} type="/pkatalog" />
+                    <HomeItem title='Сервис' image={navobr} type="/service" />
+                </div>
             </div>
-        </div>
+        </section>
     )
 }

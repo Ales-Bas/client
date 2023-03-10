@@ -8,12 +8,11 @@ body {
 }
 
 .wrapper {
-  width: calc(100vw - 5px);
+  width: 100%;
   height: 100%;
-  background-color: #fff;
-  margin: 20px auto;
-  border-radius: 10px;
-  max-width: 1400px;
+  background-color: $background;
+  max-width: 1600px;
+  min-width: 320px;
 }
 
 .content {
@@ -21,7 +20,8 @@ body {
 
 
   &__title {
-    margin: 35px 0;
+    color: #ffff;
+    padding: 0px 0px;
   }
 
   &__items {
@@ -48,6 +48,27 @@ body {
     .content__title {
       margin: 0;
     }
+  }
+}
+
+.main-background {
+  display: flex;
+  align-items: center;
+  background-image: url(../assets/img/homeImage.jpg);
+  background-repeat: no-repeat;
+  background-position: 100% 87%;
+  // background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 500px;
+}
+
+.home__teaser {
+  p {
+    color: #ffff;
   }
 }
 
@@ -112,7 +133,7 @@ body {
   &__item {
     display: flex;
     width: 100%;
-    border-top: 1px solid $gray-line;
+    //border-top: 1px solid $gray-line;
     padding-top: 15px;
     margin-top: 30px;
     justify-content: space-around;

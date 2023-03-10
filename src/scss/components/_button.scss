@@ -5,7 +5,7 @@
   background-color: $orange;
   border-radius: 30px;
   padding: 10px 20px;
-  min-width: 100px;
+  min-width: 78px;
   text-align: center;
   cursor: pointer;
   transition: background-color $duration ease-in-out, border-color $duration ease-in-out;
@@ -134,7 +134,10 @@
     display: flex;
     align-items: center;
     line-height: 23px;
-    padding: 12px 25px;
+    padding: 5px 20px;
+    background-color: #000000;
+    //width: 80px;
+    grid-area: C;
 
     svg {
       margin-right: 8px;

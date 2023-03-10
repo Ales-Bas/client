@@ -2,18 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import NavBar from '../Navbar/NavBar';
+import logoSvg from '../../assets/img/logo.svg';
 
-import logoSvg from '../assets/img/logo.svg';
-import telephoneSvg from '../assets/img/telephone.svg';
-import emailSvg from '../assets/img/emailIcon.svg';
 
 export default function Header() {
     const { partItems } = useSelector((state) => state.cart);
     const totalCount = partItems.reduce((sum, partItem) => sum + partItem.count, 0);
     return (
-        <div className="header">
-
-            <div className="container">
+        <header className="header">
+            <div className="header__container">
                 <div className="header__logo">
                     <img width="38" src={logoSvg} alt="logo" />
                     <div>
@@ -21,12 +19,7 @@ export default function Header() {
                         <p>запчасти и комплектующие</p>
                     </div>
                 </div>
-                <div className='header__info'>
-                    <img className='img__telephone' src={telephoneSvg} alt='Иконка телефона' />
-                    <h4>8-(916)-123-12-12</h4>
-                    <img className='img__telephone' src={emailSvg} alt='Иконка e-mail' />
-                    <h4>email@mail.ru</h4>
-                </div>
+                <NavBar />
                 <div className="header__cart">
                     <Link to="/cart" className="button button--cart">
                         <svg
@@ -62,7 +55,7 @@ export default function Header() {
                     </Link>
                 </div>
             </div>
-        </div>
+        </header>
     )
 }
 

@@ -9,7 +9,7 @@ import styles from './Cart/Cart.module.scss';
 
 import { setModelNameId, setSubTypePart, setPartTypeList, setSubTypePartId } from '../redux/slises/modelSlice';
 
-export default function ExavatorPage() {
+export default function PKatalog() {
     const dispatch = useDispatch();
     const modelNameId = useSelector((state) => state.models.modelNameId);
     const subTypePartId = useSelector((state) => state.models.subTypePartId);
@@ -22,7 +22,7 @@ export default function ExavatorPage() {
     //получение списка моделей
     React.useEffect(() => {
         //setIsLoading(true);
-        axios.get(`http://213.108.4.86:5000/api/modelname`)
+        axios.get(`http://localhost:5000/api/modelname`)
             .then((res) => {
                 setModelList(res.data);
             });
@@ -30,7 +30,7 @@ export default function ExavatorPage() {
     // получение списка типов запчастей
     React.useEffect(() => {
         //setIsLoading(true);
-        axios.get(`http://213.108.4.86:5000/api/subtype`)
+        axios.get(`http://localhost:5000/api/subtype`)
             .then((res) => {
                 dispatch(setSubTypePart(res.data));
             });
@@ -43,7 +43,7 @@ export default function ExavatorPage() {
         const subtypepartId = subTypePartId.id > 0 ? `subtypepartId=${subTypePartId.id}` : '';
         console.log('Логирование строки запроса', modelnameId, subtypepartId);
 
-        axios.get(`http://213.108.4.86:5000/api/typepart?${modelnameId}&${subtypepartId}`)
+        axios.get(`http://localhost:5000/api/typepart?${modelnameId}&${subtypepartId}`)
             .then((res) => {
                 dispatch(setPartTypeList(res.data));
             });

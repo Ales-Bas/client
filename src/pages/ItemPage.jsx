@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
+//import Button from 'react-bootstrap/Button';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,10 +12,10 @@ export default function ItemPage() {
     const dispatch = useDispatch();
     const { id } = useParams();
     const [dataSource, setDataSource] = React.useState([]);
-    const cartItem = useSelector((state) => state.cart.partItems.find((obj) => obj.id === dataSource.parts.id));
-    const addedCount = cartItem ? cartItem.count : 0;
+    const [buttonId, setButtonId] = React.useState([]);
+
     React.useEffect(() => {
-        axios.get(`http://213.108.4.86:5000/api/typepart/${id}`)
+        axios.get(`http://localhost:5000/api/typepart/${id}`)
             .then((res) => {
                 setDataSource(res.data);
             });
@@ -27,12 +27,19 @@ export default function ItemPage() {
             id: rowData.id,
             kluch: rowData.key,
             partsno: rowData.partsno,
-            description: rowData.description,
+            description: rowData.description
         }
 
         dispatch(addPartItems(partItem));
-
+        setButtonId(partItem.partsno);
+        console.log(`Добавление батонсайди: ${buttonId}`);
     };
+    const cartItem = useSelector((state) => state.cart.partItems);
+    console.log(cartItem);
+
+    //.find(obj => obj.id === buttonId) 
+    //const addedCount = cartItem ? cartItem.count : 0;
+
 
     return (
         <div>
@@ -58,17 +65,17 @@ export default function ItemPage() {
                                 <td>{item.key}</td>
                                 <td>{item.partsno}</td>
                                 <td>{item.description}</td>
-                                <td><Button onClick={() => handleView(item)} variant="outline-success">
+                                <td><button onClick={() => handleView(item)} className="button button--outline button--add" >
                                     <span>Добавить</span>
-                                    {addedCount > 0 && <i>{addedCount}</i>}
-                                </Button>{' '}</td>
+                                    {cartItem.map((item) => (buttonId === item.partsno && <i>{item.count}</i>))}
+                                </button>{' '}</td>
                             </tr>
                         ))}
                     </tbody>
                 </Table>
                 <img
                     src={`http://localhost:5000/${dataSource.imgurl}`}
-                    alt='Рисунок ГБ'
+                    alt='Рисунок узла'
                 />
             </div>
 

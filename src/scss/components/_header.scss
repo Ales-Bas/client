@@ -1,55 +1,74 @@
 @import '../variables';
 
-.header_top {
-  background-color: #F3F4F6;
+// это настройка блока телефона и емаил
+/*.header_top {
+  background-color: #000000;
   display: flex;
   justify-content: center;
-}
+} */
 
 .header {
-  border-bottom: 1px solid $gray-line;
-  padding: 25px 0;
-
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  * {
+    padding: 0;
+    margin: 0;
   }
 
+  //border-bottom: 1px solid $gray-line;
+  padding: 5px 0;
+  background-color: #000000;
 
+  .header__container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 2fr 0.1fr;
+    grid-template-rows: 0.5fr;
+    gap: 2px 0px;
+    grid-template-areas: "A B C";
+    justify-items: center;
+    align-items: center;
+
+
+    @media (max-width: 1049px) {
+      grid-template-areas: "A A A A  A A A A  C C C C"
+        "B B B B  B B B B  B B B B";
+    }
+
+    @media (max-width: 646px) {
+      grid-template-areas: "B A C";
+      grid-template-columns: 40px auto 0.1fr;
+
+
+    }
+  }
 
   &__logo {
     display: flex;
-
+    align-items: center;
+    grid-area: A;
 
     img {
-      margin-right: 15px;
-      width: 150px;
+      margin-right: 5px;
+      width: 100px;
     }
 
     h1 {
-      color: #181818;
-      font-size: 24px;
+      color: #fff;
+      font-size: 20px;
       letter-spacing: 1%;
       text-transform: uppercase;
       font-weight: 800;
     }
 
     p {
-      color: #7b7b7b;
+      color: #DFD045;
     }
-  }
 
-  .header__info {
-
-    position: relative;
-  }
-
-  .img__telephone {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-
+    @media (max-width:646px) {
+      img {
+        width: 50px;
+      }
+    }
   }
 
   h4 {

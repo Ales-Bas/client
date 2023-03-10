@@ -4,11 +4,10 @@ import Modal from "react-bootstrap/Modal";
 import { Button } from "react-bootstrap";
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
-//import { clearPartItems } from '../../redux/slises/cartSlice';
-//import { useDispatch } from 'react-redux';
+import { clearPartItems } from '../../redux/slises/cartSlice';
+import { useDispatch } from 'react-redux';
 
 import styles from './SendCart.module.scss';
-
 
 const MyTextInput = ({ label, ...props }) => {
     // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
@@ -49,7 +48,7 @@ const MyCheckbox = ({ children, ...props }) => {
 {/*const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/*/ }
 
 export default function SendCart({ show, onHide, partItems }) {
-    //  const dispatch = useDispatch();
+    const dispatch = useDispatch();
     return (
         <Modal
             show={show}
@@ -88,13 +87,13 @@ export default function SendCart({ show, onHide, partItems }) {
                     })}
                     onSubmit={(values, { setSubmitting }) => {
                         setTimeout(() => {
-                            axios.post(`http://213.108.4.86:5000/api/cartsend`, values)
+                            axios.post(`http://localhost:5000/api/cartsend`, values)
                                 .then((res) => {
                                     alert('Ваш заказ успешно добавлен.');
                                 });
 
                             setSubmitting(false);
-                            //dispatch(clearPartItems());
+                            dispatch(clearPartItems());
                         }, 400);
                     }}
                 >
