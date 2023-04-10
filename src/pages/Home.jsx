@@ -1,9 +1,13 @@
 import React from 'react';
 
 import HomeItem from '../Components/HomeItem';
-import ekskavator from '../assets/img/Экскаватор.jpg';
-import pogruzchik from '../assets/img/погрузчик.jpg';
-import navobr from '../assets/img/Навесное оборудование.jpg'
+import menuItem_tk from '../assets/img/menuItem_tk.jpg';
+import menuItem_pk from '../assets/img/menuItem_pk.jpg';
+import menuItem_servis from '../assets/img/menuItem_servis.jpg'
+
+const description_tk = "Поставка строительной техники Doosan, индивидуальный подход к каждому клиенту, возможна поставка нестандартных комплектующих";
+const description_pk = "Оригинальные запчасти Doosan  в наличии и под заказ.";
+const description_servis = "Предоставляем качественный сервис, обслуживание и ремонт техники Doosan.";
 
 export default function Home() {
     return (
@@ -11,16 +15,17 @@ export default function Home() {
             <div className='main-background'>
                 <div className="container">
                     <div className="home__teaser">
-                        <h1 className="content__title">Главная страница титул</h1>
-                        <p>Lorem ipsum</p>
+                        <h1 className="teaser__title">СПЕЦАВТОБАТ</h1>
+                        <span className='accent-bar'></span>
+                        <p>Официальный дилер компании Трансмехсервис главного дистрибьютера Doosan в России</p>
                     </div>
-                </div>
-            </div >
+                </div >
+            </div>
             <div className='container'>
                 <div className="content__items">
-                    <HomeItem title='Каталог техники Doosan' image={ekskavator} type="/tkatalog" />
-                    <HomeItem title='Каталог запчастей Doosan' image={pogruzchik} type="/pkatalog" />
-                    <HomeItem title='Сервис' image={navobr} type="/service" />
+                    <HomeItem title='Каталог техники Doosan' image={menuItem_tk} type="/tkatalog" text={description_tk} />
+                    <HomeItem title='Каталог запчастей Doosan' image={menuItem_pk} type="/pkatalog" text={description_pk} />
+                    <HomeItem title='Сервис' image={menuItem_servis} type="/service" text={description_servis} />
                 </div>
             </div>
         </section>

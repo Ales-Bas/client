@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
+
+    isSetModel: (false),
+
     modelNameId: {
         id: 0,
         name: "",
@@ -24,10 +27,13 @@ const initialState = {
 
 }
 
-export const modelSlice = createSlice({
+const modelSlice = createSlice({
     name: 'models',
     initialState,
     reducers: {
+        setIsSetModel(state, action) {
+            state.isSetModel = action.payload;
+        },
         setModelNameId(state, action) {
             state.modelNameId = action.payload;
         },
@@ -47,7 +53,8 @@ export const modelSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setModelNameId,
+export const { setIsSetModel,
+    setModelNameId,
     setSubTypePart,
     setSubTypePartId,
     setTypePartId,

@@ -1,40 +1,129 @@
 import React from 'react';
-//import axios from 'axios';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-import { Link } from 'react-router-dom';
-//import { setModelNameId } from '../../redux/slises/modelSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchModelTypeList, setModelTypeId, fetchModelList } from '../../redux/slises/modelFilterSlice';
+
+import { setModelNameId, setSubTypePartId, setIsSetModel } from '../../redux/slises/modelSlice';
+//import styles from './Cart/Cart.module.scss';
 
 export default function MySideBar() {
+    const dispatch = useDispatch();
+    const { modelTypeList, modelTypeId, modelList } = useSelector((state) => state.modelSideBar);
+    const [isSetModelType, setIsSetModelType] = React.useState(false);
+
+    // Запрос списка типов модели
+    const getModelType = async () => {
+        dispatch(fetchModelTypeList());
+    };
+
+    // получение списка моделей
+    const getModelList = async () => {
+        const typeId = modelTypeId > 0 ? `typeId=${modelTypeId}` : '';
+        console.log(typeId);
+        dispatch(
+            fetchModelList({
+                typeId,
+            }),
+        );
+    };
+
+    // Выбор типа модели
+    const onChangeTypeName = (id) => {
+        dispatch(
+            setModelTypeId(id),
+        );
+        setIsSetModelType(true);
+        // setIsSetModel(true);
+    };
+
+    const onChangeModelName = (obj) => {
+        dispatch(setModelNameId(obj));
+        dispatch(setSubTypePartId({
+            id: 0,
+            name: "",
+        }))
+        dispatch(setIsSetModel(true));
+    };
+
+    React.useEffect(() => {
+        // window.scrollTo(0, 0);
+        if (!isSetModelType) {
+            getModelType();
+        } else {
+            getModelList();
+        }
+
+    }, [modelTypeId]);
 
     return (
-
-        <div >
+        < div >
             <Sidebar>
                 <Menu>
-                    <SubMenu label="Гусеничные">
-                        <SubMenu label="DX model">
-                            <MenuItem >
-                                <Link to="/DX300LCA">
-                                    DX300LCA
-                                </Link>
-                            </MenuItem>
-                            <MenuItem>DX300LC-3 </MenuItem>
+                    <SubMenu label="Экскаваторы" >
+                        <SubMenu label="Гусеничные">
+                            {modelTypeList.filter(item => item.mission == "Экскаваторы" && item.platform == "Гусеничные").map(({ name, id }) => (
+                                <SubMenu label={name}
+                                    key={id}
+                                    name={name}
+                                    onClick={() => onChangeTypeName(id)}
+                                >
+                                    {modelList.map(({ name, id }) => (
+                                        <MenuItem
+                                            key={id}
+                                            name={name}
+                                            onClick={() => onChangeModelName({ name, id })}
+                                        >
+                                            {name}
+                                        </MenuItem>
+                                    ))}
+                                </SubMenu>
+                            ))}
                         </SubMenu>
-                        <SubMenu label="MINI-MODEL">
-                            <MenuItem> mini 444 </MenuItem>
-                            <MenuItem>mini 555 </MenuItem>
+                        <SubMenu label="Колесные">
+                            {modelTypeList.filter(item => item.mission == "Экскаваторы" && item.platform == "Колесные").map(({ name, id }) => (
+                                <SubMenu label={name}
+                                    key={id}
+                                    name={name}
+                                    onClick={() => onChangeTypeName(id)}
+                                >
+                                    {modelList.map(({ name, id }) => (
+                                        <MenuItem
+                                            key={id}
+                                            name={name}
+                                            onClick={() => onChangeModelName({ name, id })}
+                                        >
+                                            {name}
+                                        </MenuItem>
+                                    ))}
+                                </SubMenu>
+                            ))}
                         </SubMenu>
                     </SubMenu>
-                    <SubMenu label="Колесные">
-                        <MenuItem> kol 666 </MenuItem>
-                        <MenuItem> kol 777 </MenuItem>
+                    <SubMenu label="Фронтальные погрузчики">
+                        {modelTypeList.filter(item => item.mission == "Погрузчики").map(({ name, id }) => (
+                            <SubMenu label={name}
+                                key={id}
+                                name={name}
+                                onClick={() => onChangeTypeName(id)}
+                            >
+                                {modelList.map(({ name, id }) => (
+                                    <MenuItem
+                                        key={id}
+                                        name={name}
+                                    //onClick={() => onChangeModelName({ name, id })}
+                                    >
+                                        {name}
+                                    </MenuItem>
+                                ))}
+                            </SubMenu>
+                        ))}
                     </SubMenu>
-                    <SubMenu label="Мини-экскаваторы">
+                    <SubMenu label="Навесное оборудование">
                         <MenuItem> mini 444 </MenuItem>
                         <MenuItem> mini 555</MenuItem>
                     </SubMenu>
                 </Menu>
             </Sidebar>
-        </div>
+        </div >
     )
 }
