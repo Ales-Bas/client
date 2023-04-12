@@ -21,9 +21,9 @@ export default function NavBar() {
                 <li onClick={() => onClickMenuItem(0)}><Link to='/' className={activeIndex === 0 ? [styles.menuActive] : ''}>Главная</Link></li>
                 <li onClick={() => onClickMenuItem(1)}><Link to='/tkatalog' className={activeIndex === 1 ? [styles.menuActive] : ''}>Техника Doosan</Link></li>
                 <li onClick={() => onClickMenuItem(2)}><Link to='/pkatalog' className={activeIndex === 2 ? [styles.menuActive] : ''}>Запчасти Doosan</Link></li>
-                <li onClick={() => onClickMenuItem(3)}><Link to='/' className={activeIndex === 3 ? [styles.menuActive] : ''}>Сервис</Link></li>
-                <li onClick={() => onClickMenuItem(4)}><Link to='/' className={activeIndex === 4 ? [styles.menuActive] : ''}>О компании</Link></li>
-                <li onClick={() => onClickMenuItem(5)}><Link to='/' className={activeIndex === 5 ? [styles.menuActive] : ''}>Контакты</Link></li>
+                <li onClick={() => onClickMenuItem(3)}><Link to='/infopage' className={activeIndex === 3 ? [styles.menuActive] : ''}>Сервис</Link></li>
+                <li onClick={() => onClickMenuItem(4)}><Link to='/infopage' className={activeIndex === 4 ? [styles.menuActive] : ''}>О компании</Link></li>
+                <li onClick={() => window.scrollTo(1000, 1000)}><Link>Контакты</Link></li>
             </ul>
             <div onClick={() => setBurgerClick(!burgerClick)} className={styles.burger_btn}>
                 {burgerClick ? <img width="25" src={burgerClose} alt="burgerClose" /> : <img width="25" src={burgerMenuIcon} alt="MenuIcon" />}

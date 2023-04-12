@@ -11,6 +11,7 @@ import PKatalog from './pages/PKatalog';
 import TKatalog from './pages/TKatalog';
 import Cart from './pages/Cart/Cart';
 import ItemPage from './pages/ItemPage';
+import InfoPage from './pages/InfoPage';
 
 export const SearchPContext = React.createContext();
 
@@ -22,13 +23,13 @@ function App() {
     <div className="wrapper">
       <SearchPContext.Provider value={{ searchPValue, setSearchPValue }}>
         <Header />
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/pkatalog" element={<PKatalog />} />
           <Route path="/tkatalog" element={<TKatalog />} />
           <Route path="/cart" element={<Cart />} />
           <Route path={'/typepart' + '/:id'} element={<ItemPage />} />
+          <Route path="/infopage" element={<InfoPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
 

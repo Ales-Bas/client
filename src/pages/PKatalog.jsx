@@ -46,7 +46,7 @@ export default function PKatalog() {
                     {subTypePartId.name} {modelNameId.name}
                 </h2>
             ) : (
-                <h2 className="content__title">Страница выбора модели</h2>
+                <h2 className="content__title">Каталог запчастей Doosan</h2>
             )}
             <div className={styles.root}>
 

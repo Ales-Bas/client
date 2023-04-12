@@ -33,7 +33,6 @@ export default function MySideBar() {
             setModelTypeId(id),
         );
         setIsSetModelType(true);
-        // setIsSetModel(true);
     };
 
     const onChangeModelName = (obj) => {

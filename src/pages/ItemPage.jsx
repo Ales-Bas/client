@@ -15,7 +15,7 @@ export default function ItemPage() {
     const [buttonId, setButtonId] = React.useState([]);
 
     React.useEffect(() => {
-        axios.get(`http://localhost:5000/api/typepart/${id}`)
+        axios.get(`http://194.87.146.192:5000/api/typepart/${id}`)
             .then((res) => {
                 setDataSource(res.data);
             });
@@ -74,7 +74,7 @@ export default function ItemPage() {
                     </tbody>
                 </Table>
                 <img
-                    src={`http://localhost:5000/${dataSource.imgurl}`}
+                    src={`http://194.87.146.192:5000/${dataSource.imgurl}`}
                     alt='Рисунок узла'
                 />
             </div>

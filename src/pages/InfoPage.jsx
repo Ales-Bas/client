@@ -1,14 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-
-export default function TKatalog() {
+export default function InfoPage() {
     return (
         <div className="container">
             <div className="info_page">
-                <h1>Каталог Техники</h1>
                 <h4>Данный раздел находится в разработке</h4>
                 <p>Скоро мы обновим сайт и этот раздел будет доступен</p>
             </div>
         </div>
+
     )
 }
