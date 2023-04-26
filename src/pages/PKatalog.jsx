@@ -19,7 +19,7 @@ export default function PKatalog() {
     // получение списка типов запчастей
     React.useEffect(() => {
         //setIsLoading(true);
-        axios.get(`http://194.87.146.192:5000/api/subtype`)
+        axios.get(`https://web-prod.online/api/subtype`)
             .then((res) => {
                 dispatch(setSubTypePart(res.data));
             });
@@ -32,7 +32,7 @@ export default function PKatalog() {
         const subtypepartId = subTypePartId.id > 0 ? `subtypepartId=${subTypePartId.id}` : '';
         console.log('Логирование строки запроса', modelnameId, subtypepartId);
 
-        axios.get(`http://194.87.146.192:5000/api/typepart?${modelnameId}&${subtypepartId}`)
+        axios.get(`https://web-prod.online/api/typepart?${modelnameId}&${subtypepartId}`)
             .then((res) => {
                 dispatch(setPartTypeList(res.data));
             });

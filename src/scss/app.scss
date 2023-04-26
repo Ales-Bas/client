@@ -99,7 +99,7 @@ body {
 .main-background {
   display: flex;
   align-items: center;
-  background-image: linear-gradient(to right, #181510 7%, rgba(0, 0, 0, 0) 93%), url(../assets/img/homeImage.jpg);
+  background-image: linear-gradient(to right, #181510 7%, rgba(0, 0, 0, 0) 93%), url(../assets/img/homeImage.jpeg);
   background-repeat: no-repeat;
   background-position: 100% 50%;
   //background-attachment: fixed;
@@ -127,7 +127,17 @@ body {
   }
 }
 
+.main__teaser {
+  display: flex;
+  flex-direction: column;
+  width: 37%;
 
+  .teaser__title {
+    //color: #ffff;
+    padding-top: 10px;
+  }
+
+}
 
 
 .accent-bar {

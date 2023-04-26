@@ -1,9 +1,9 @@
 import React from 'react';
 
 import HomeItem from '../Components/HomeItem';
-import menuItem_tk from '../assets/img/menuItem_tk.jpg';
-import menuItem_pk from '../assets/img/menuItem_pk.jpg';
-import menuItem_servis from '../assets/img/menuItem_servis.jpg'
+import menuItem_tk from '../assets/img/menuItem_tk.jpeg';
+import menuItem_pk from '../assets/img/menuItem_pk.jpeg';
+import menuItem_servis from '../assets/img/menuItem_servis.jpeg'
 
 const description_tk = "Поставка строительной техники Doosan, индивидуальный подход к каждому клиенту, возможна поставка нестандартных комплектующих";
 const description_pk = "Оригинальные запчасти Doosan  в наличии и под заказ.";
