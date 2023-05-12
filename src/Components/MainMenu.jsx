@@ -14,7 +14,7 @@ export default function MainMenu() {
                 <div className={styles.root}>
 
                     <Link to="/" className='button button--katalog'>
-                        <span>Каталог</span>
+                        <span>Каталог Запчастей</span>
                     </Link>
                     <SearchPkatalog />
                 </div>

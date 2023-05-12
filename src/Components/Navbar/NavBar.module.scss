@@ -3,17 +3,17 @@
     grid-area: B;
 
     a {
-        //text-decoration: none;
+        text-decoration: none;
         color: #fff;
         padding-bottom: 10px;
 
-        &:hover {
-            color: #DFD045;
+        .menuActive {
+            color: #DFD045 !important;
+            border-bottom: 2px solid !important;
         }
 
-        .menuActive {
+        &:hover {
             color: #DFD045;
-            border-bottom: 2px solid;
         }
     }
 
@@ -22,18 +22,8 @@
 
         li {
             padding: 10px;
-
         }
-
-        .menuActive {
-            color: #DFD045;
-            border-bottom: 2px solid;
-        }
-
     }
-
-
-
 }
 
 .burger_btn {
@@ -77,7 +67,6 @@
             opacity: 70%;
             transition: left 1s;
         }
-
     }
 
     .active {
@@ -85,7 +74,11 @@
             top: 58px;
             left: 0%;
         }
-
     }
 
+}
+
+.menuActive {
+    color: #DFD045 !important;
+    border-bottom: 2px solid !important;
 }

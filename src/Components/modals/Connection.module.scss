@@ -1,0 +1,36 @@
+.modalStyle {
+    display: grid;
+
+
+}
+
+.textInput {
+    height: 35px;
+    border-radius: 10px;
+    padding-left: 5px;
+    border: none;
+    -webkit-box-shadow: 0px 2px 14px 3px rgba(9, 10, 11, 0.1);
+    -moz-box-shadow: 0px 2px 14px 3px rgba(9, 10, 11, 0.1);
+    box-shadow: 0px 2px 14px 3px rgba(9, 10, 11, 0.1);
+
+    &:focus {
+        -webkit-box-shadow: 0px 2px 14px 3px rgba(9, 10, 11, 0.2);
+        -moz-box-shadow: 0px 2px 14px 3px rgba(9, 10, 11, 0.2);
+        box-shadow: 0px 2px 14px 3px rgba(9, 10, 11, 0.2);
+        //border: 1px solid #ffff00;
+    }
+}
+
+.modalSubmit {
+
+    display: inline-block;
+    background-color: #ffff00 !important;
+    border-radius: 30px;
+    padding: 10px 20px;
+    min-width: 78px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    border: 1px solid transparent;
+    width: 400px;
+}

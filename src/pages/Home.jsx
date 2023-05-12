@@ -5,7 +5,7 @@ import menuItem_tk from '../assets/img/menuItem_tk.jpeg';
 import menuItem_pk from '../assets/img/menuItem_pk.jpeg';
 import menuItem_servis from '../assets/img/menuItem_servis.jpeg'
 
-const description_tk = "Поставка строительной техники Doosan, индивидуальный подход к каждому клиенту, возможна поставка нестандартных комплектующих";
+const description_tk = "Поставка строительной техники Doosan, индивидуальный подход к каждому клиенту, возможна поставка нестандартных комплектующих.";
 const description_pk = "Оригинальные запчасти Doosan  в наличии и под заказ.";
 const description_servis = "Предоставляем качественный сервис, обслуживание и ремонт техники Doosan.";
 
@@ -17,7 +17,7 @@ export default function Home() {
                     <div className="home__teaser">
                         <h1 className="teaser__title">СПЕЦАВТОБАТ</h1>
                         <span className='accent-bar'></span>
-                        <p>Официальный дилер компании Трансмехсервис главного дистрибьютера Doosan в России</p>
+                        <p>Официальный дилер главного дистрибьютера Doosan в России</p>
                     </div>
                 </div >
             </div>

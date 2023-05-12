@@ -11,11 +11,13 @@ import { addPartItems } from '../redux/slises/cartSlice';
 export default function ItemPage() {
     const dispatch = useDispatch();
     const { id } = useParams();
+    const cartItem = useSelector((state) => state.cart.partItems);
+    const modelName = useSelector((state) => state.models.modelNameId);
     const [dataSource, setDataSource] = React.useState([]);
     const [buttonId, setButtonId] = React.useState([]);
 
     React.useEffect(() => {
-        axios.get(`https://web-prod.online/api/typepart/${id}`)
+        axios.get(`https://web-prod.online/api/typepart/${id}`) //https://web-prod.online
             .then((res) => {
                 setDataSource(res.data);
             });
@@ -34,7 +36,7 @@ export default function ItemPage() {
         setButtonId(partItem.partsno);
         console.log(`Добавление батонсайди: ${buttonId}`);
     };
-    const cartItem = useSelector((state) => state.cart.partItems);
+
     console.log(cartItem);
 
     //.find(obj => obj.id === buttonId) 
@@ -44,7 +46,7 @@ export default function ItemPage() {
     return (
         <div>
 
-            <h2 className="content__title ">{dataSource.name} DX300LCA</h2>
+            <h2 className="content__title ">{dataSource.name} {modelName.name}</h2>
 
             <div className={styles.catzap}>
                 <Table striped bordered hover size="sm">

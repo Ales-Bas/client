@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { setSubTypePartId, setTypePartId } from '../redux/slises/modelSlice';
-import styles from '../scss/components/_model-item.scss';
-
+//import styles from '../scss/components/_model-item.scss';
 
 export default function ModelItem() {
 
@@ -27,7 +26,6 @@ export default function ModelItem() {
     const onChangeTypePart = (obj) => {
         dispatch(setTypePartId(obj));
         navigate(`/typepart/${obj.id}`);
-        console.log(obj.id);
         setIsSetSubTypePart(false);
 
     };

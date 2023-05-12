@@ -4,10 +4,8 @@ import Modal from "react-bootstrap/Modal";
 import { Button } from "react-bootstrap";
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
-import { clearPartItems } from '../../redux/slises/cartSlice';
-import { useDispatch } from 'react-redux';
 
-import styles from './SendCart.module.scss';
+import styles from './Connection.module.scss';
 
 const MyTextInput = ({ label, ...props }) => {
     // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
@@ -47,8 +45,7 @@ const MyCheckbox = ({ children, ...props }) => {
 
 {/*const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/*/ }
 
-export default function SendCart({ show, onHide, partItems }) {
-    const dispatch = useDispatch();
+export default function ConnectionModal({ show, onHide, partItems }) {
     return (
         <Modal
             show={show}
@@ -58,7 +55,7 @@ export default function SendCart({ show, onHide, partItems }) {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    Мы проверим наличие и цену вашего заказа и свяжемся с вами
+                    Оставьте свои контактные данные и мы свяжемся с вами
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -87,18 +84,18 @@ export default function SendCart({ show, onHide, partItems }) {
                     })}
                     onSubmit={(values, { setSubmitting }) => {
                         setTimeout(() => {
-                            axios.post(`https://web-prod.online/api/cartsend`, values)
+                            axios.post(`https://web-prod.online/api/connection`, values)
                                 .then((res) => {
                                     alert('Ваш заказ успешно добавлен.');
                                 });
 
                             setSubmitting(false);
-                            dispatch(clearPartItems());
                         }, 400);
                     }}
                 >
                     <Form className={styles.modalStyle}>
                         <MyTextInput
+                            className={styles.textInput}
                             label="Имя"
                             name="name"
                             type="text"
@@ -106,6 +103,7 @@ export default function SendCart({ show, onHide, partItems }) {
                         />
 
                         <MyTextInput
+                            className={styles.textInput}
                             label="Телефон"
                             name="phone"
                             type="text"
@@ -113,12 +111,14 @@ export default function SendCart({ show, onHide, partItems }) {
                         />
 
                         <MyTextInput
+                            className={styles.textInput}
                             label="Электронная почта"
                             name="email"
                             type="email"
                             placeholder="Введите адрес электронной почты"
                         />
                         <MyTextInput
+                            className={styles.textInput}
                             label="Комментарий"
                             name="coment"
                             type="text"
@@ -128,7 +128,7 @@ export default function SendCart({ show, onHide, partItems }) {
                             Я не робот
                         </MyCheckbox>
 
-                        <button type="submit" onClick={onHide}>Отправить</button>
+                        <button className="modalSubmit" type="submit" onClick={onHide}>Отправить</button>
                     </Form>
                 </Formik>
             </Modal.Body>
