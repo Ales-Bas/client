@@ -76,7 +76,7 @@ export default function InfoPage() {
                                 </li>
                             </ul>
                             <div className="pdf__link">
-                                <a href={`http://localhost:5000/${item.urlpdf}`} target="_blank" download>Скачать описание модели PDF</a>
+                                <a href={`https://web-prod.online/${item.urlpdf}`} target="_blank" download>Скачать описание модели PDF</a>
                             </div>
 
                             <div className="tizer-row">

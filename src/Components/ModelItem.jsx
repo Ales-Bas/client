@@ -27,6 +27,10 @@ export default function ModelItem() {
         dispatch(setTypePartId(obj));
         navigate(`/typepart/${obj.id}`);
         setIsSetSubTypePart(false);
+        dispatch(setSubTypePartId({
+            id: 0,
+            name: ""
+        }))
 
     };
     console.log(' а тут уже логирование работы выбора запчасти', typePartId);
