@@ -4,8 +4,8 @@ import { $host } from '../../http/index';
 export const fetchTehCard = createAsyncThunk(
     'tehCardFilter/fetchTehCardStatus',
     async (params) => {
-        const { category } = params;
-        const { data } = await $host.get(`api/specifications?${category}`);
+        const { category, page } = params;
+        const { data } = await $host.get(`api/specifications?${category}&${page}`);
         return data;
     });
 
@@ -14,6 +14,9 @@ const initialState = {
     categorySearch: '',
     items: [],
     status: 'loading', // loading | success | error
+    currentPage: 1,
+    limit: 9,
+
 }
 
 export const tehCardSlice = createSlice({
@@ -28,6 +31,12 @@ export const tehCardSlice = createSlice({
         },
         setItems(state, action) {
             state.items = action.payload;
+        },
+        setCurrentPage: (state, action) => {
+            state.currentPage = action.payload;
+        },
+        setLimit: (state, action) => {
+            state.limit = action.payload;
         },
     },
     extraReducers: {
@@ -51,6 +60,8 @@ export const {
     setCategoryId,
     setCategorySearch,
     setItems,
+    setCurrentPage,
+    setLimit
 } = tehCardSlice.actions;
 
 export default tehCardSlice.reducer;

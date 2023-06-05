@@ -27,7 +27,7 @@ body {
 
   &__title {
     //color: #ffff;
-    padding: 10px 0px;
+    padding: 20px 0px;
   }
 
   &__items {
@@ -50,6 +50,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 1150px) {
+      .categories {
+        width: 100%;
+        overflow: scroll;
+
+        ul {
+          width: 1094px;
+        }
+      }
+    }
   }
 
   &__card {
@@ -74,24 +85,31 @@ body {
   }
 
   &__tehcard {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 80px 0px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    margin: 30px 0px;
+    grid-row-gap: 20px;
 
-    @media (max-width: 1199px) {
-      justify-content: space-between;
+    @media (max-width: 1150px) {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (max-width: 767px) {
-      justify-content: center;
-
+    @media (max-width: 750px) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-row-gap: 10px;
     }
   }
 
   &__infopage {
     margin: 50px 0px;
   }
+}
+
+.search__panel {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: flex-end;
 }
 
 .grid-infopage {
@@ -157,7 +175,7 @@ body {
   margin-top: 50px;
 }
 
-.container {
+.container__my {
   width: $container-width;
   margin: 0 auto;
 
@@ -185,8 +203,6 @@ body {
   height: 500px;
 }
 
-
-
 .home__teaser {
   display: flex;
   flex-direction: column;
@@ -201,19 +217,6 @@ body {
     color: #ffff;
   }
 }
-
-.main__teaser {
-  display: flex;
-  flex-direction: column;
-  width: 37%;
-
-  .teaser__title {
-    //color: #ffff;
-    padding-top: 10px;
-  }
-
-}
-
 
 .accent-bar {
   background-color: $orange;
@@ -335,19 +338,6 @@ body {
 
       b {
         font-size: 22px;
-      }
-    }
-
-    &-price {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 33%;
-
-      b {
-        font-weight: bold;
-        font-size: 22px;
-        letter-spacing: 0.01em;
       }
     }
 
@@ -487,4 +477,47 @@ body {
       font-size: 18px;
     }
   }
+}
+
+//настройки страницы pkatalog
+.isnotmodel {
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .showcasespan {
+    margin-top: 10px;
+  }
+}
+
+.loginPage {
+  display: flex;
+  height: 550px;
+  justify-content: center;
+  align-items: center;
+}
+
+.showcase {
+  background-color: white;
+
+  .showcase__title {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  img {
+    width: 428px;
+  }
+}
+
+// настройки пагинации
+.active .page-link {
+  background-color: #181510 !important;
+  border-color: #181510 !important;
+}
+
+.page-link {
+  color: #181510;
 }

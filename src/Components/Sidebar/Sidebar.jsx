@@ -1,38 +1,20 @@
 import React from 'react';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchModelTypeList, setModelTypeId, fetchModelList } from '../../redux/slises/modelFilterSlice';
+import { fetchModelList } from '../../redux/slises/modelFilterSlice';
 
 import { setModelNameId, setSubTypePartId, setIsSetModel } from '../../redux/slises/modelSlice';
 //import styles from './Cart/Cart.module.scss';
 
 export default function MySideBar() {
     const dispatch = useDispatch();
-    const { modelTypeList, modelTypeId, modelList } = useSelector((state) => state.modelSideBar);
-    const [isSetModelType, setIsSetModelType] = React.useState(false);
-
-    // Запрос списка типов модели
-    const getModelType = async () => {
-        dispatch(fetchModelTypeList());
-    };
+    const { modelList } = useSelector((state) => state.modelSideBar);
 
     // получение списка моделей
     const getModelList = async () => {
-        const typeId = modelTypeId > 0 ? `typeId=${modelTypeId}` : '';
-        console.log(typeId);
         dispatch(
-            fetchModelList({
-                typeId,
-            }),
+            fetchModelList({}),
         );
-    };
-
-    // Выбор типа модели
-    const onChangeTypeName = (id) => {
-        dispatch(
-            setModelTypeId(id),
-        );
-        setIsSetModelType(true);
     };
 
     const onChangeModelName = (obj) => {
@@ -45,14 +27,8 @@ export default function MySideBar() {
     };
 
     React.useEffect(() => {
-        // window.scrollTo(0, 0);
-        if (!isSetModelType) {
-            getModelType();
-        } else {
-            getModelList();
-        }
-
-    }, [modelTypeId]);
+        getModelList();
+    }, []);
 
     return (
         < div >
@@ -60,62 +36,58 @@ export default function MySideBar() {
                 <Menu>
                     <SubMenu label="Экскаваторы" >
                         <SubMenu label="Гусеничные">
-                            {modelTypeList.filter(item => item.mission == "Экскаваторы" && item.platform == "Гусеничные").map(({ name, id }) => (
-                                <SubMenu label={name}
+                            {modelList.filter(item => item.mission === "Гусеничный экскаватор").map(({ id, name, mission, urlpic }) => (
+                                <MenuItem
                                     key={id}
                                     name={name}
-                                    onClick={() => onChangeTypeName(id)}
-                                >
-                                    {modelList.map(({ name, id }) => (
-                                        <MenuItem
-                                            key={id}
-                                            name={name}
-                                            onClick={() => onChangeModelName({ name, id })}
-                                        >
-                                            {name}
-                                        </MenuItem>
-                                    ))}
-                                </SubMenu>
+                                    onClick={() => onChangeModelName({ id, name, mission, urlpic })}
+                                > {name}
+                                </MenuItem>
                             ))}
                         </SubMenu>
                         <SubMenu label="Колесные">
-                            {modelTypeList.filter(item => item.mission == "Экскаваторы" && item.platform == "Колесные").map(({ name, id }) => (
-                                <SubMenu label={name}
+                            {modelList.filter(item => item.mission === "Колесный экскаватор").map(({ id, name, mission, urlpic }) => (
+                                <MenuItem
                                     key={id}
                                     name={name}
-                                    onClick={() => onChangeTypeName(id)}
+                                    onClick={() => onChangeModelName({ id, name, mission, urlpic })}
                                 >
-                                    {modelList.map(({ name, id }) => (
-                                        <MenuItem
-                                            key={id}
-                                            name={name}
-                                            onClick={() => onChangeModelName({ name, id })}
-                                        >
-                                            {name}
-                                        </MenuItem>
-                                    ))}
-                                </SubMenu>
+                                    {name}
+                                </MenuItem>
                             ))}
                         </SubMenu>
                     </SubMenu>
                     <SubMenu label="Фронтальные погрузчики">
-                        {modelTypeList.filter(item => item.mission == "Погрузчики").map(({ name, id }) => (
-                            <SubMenu label={name}
-                                key={id}
-                                name={name}
-                                onClick={() => onChangeTypeName(id)}
-                            >
-                                {modelList.map(({ name, id }) => (
-                                    <MenuItem
-                                        key={id}
-                                        name={name}
-                                    //onClick={() => onChangeModelName({ name, id })}
-                                    >
-                                        {name}
-                                    </MenuItem>
-                                ))}
-                            </SubMenu>
-                        ))}
+                        <SubMenu label="DL серия">
+                            {modelList.filter(item => item.mission === "Фронтальный погрузчик DL").map(({ id, name, mission, urlpic }) => (
+                                <MenuItem
+                                    key={id}
+                                    name={name}
+                                    onClick={() => onChangeModelName({ id, name, mission, urlpic })}
+                                > {name}
+                                </MenuItem>
+                            ))}
+                        </SubMenu>
+                        <SubMenu label="SD серия">
+                            {modelList.filter(item => item.mission === "Фронтальный погрузчик SD").map(({ id, name, mission, urlpic }) => (
+                                <MenuItem
+                                    key={id}
+                                    name={name}
+                                    onClick={() => onChangeModelName({ id, name, mission, urlpic })}
+                                > {name}
+                                </MenuItem>
+                            ))}
+                        </SubMenu>
+                        <SubMenu label="MEGA серия">
+                            {modelList.filter(item => item.mission === "Фронтальный погрузчик MEGA").map(({ id, name, mission, urlpic }) => (
+                                <MenuItem
+                                    key={id}
+                                    name={name}
+                                    onClick={() => onChangeModelName({ id, name, mission, urlpic })}
+                                > {name}
+                                </MenuItem>
+                            ))}
+                        </SubMenu>
                     </SubMenu>
                     <SubMenu label="Навесное оборудование">
                         <MenuItem> mini 444 </MenuItem>

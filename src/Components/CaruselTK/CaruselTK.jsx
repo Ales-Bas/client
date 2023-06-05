@@ -6,29 +6,29 @@ function CaruselTK({ urlimg, urlimgone, urlimgtwo, urlimgethree }) {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src={`https://web-prod.online/${urlimg}`}
+                    src={process.env.REACT_APP_API_URL + "/" + `${urlimg}`}
                     alt="pic slide"
                 />
             </Carousel.Item>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src={`https://web-prod.online/${urlimgone}`}
-                    alt="pic slide"
+                    src={process.env.REACT_APP_API_URL + "/" + `${urlimgone}`}
+                    alt="pic slide_one"
                 />
             </Carousel.Item>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src={`https://web-prod.online/${urlimgtwo}`}
-                    alt="pic slide"
+                    src={process.env.REACT_APP_API_URL + "/" + `${urlimgtwo}`}
+                    alt="pic slide_two"
                 />
             </Carousel.Item>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src={`https://web-prod.online/${urlimgethree}`}
-                    alt="pic slide"
+                    src={process.env.REACT_APP_API_URL + "/" + `${urlimgethree}`}
+                    alt="pic slide_three"
                 />
             </Carousel.Item>
         </Carousel>

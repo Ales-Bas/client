@@ -14,7 +14,7 @@ function TehCard({ id, model, mass, powereng, buckvol, urlimg, mission }) {
             <div onClick={() => selectTehCard({ id })} className="teh-card">
                 <img
                     className="teh-card__image"
-                    src={`https://web-prod.online/${urlimg}`}
+                    src={process.env.REACT_APP_API_URL + "/" + `${urlimg}`} //https://web-prod.online
                     alt="ModelImg"
                 />
                 <h4 className="teh-card__title">{model}</h4>

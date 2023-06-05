@@ -27,7 +27,7 @@ export default function InfoPage() {
     }, []);
 
     return (
-        <div className="container">
+        <div className="container__my">
             {status === 'error' ? (
                 <div className='content__error-info'>
                     <h2>Не удалось загрузить страницу</h2>
@@ -76,7 +76,7 @@ export default function InfoPage() {
                                 </li>
                             </ul>
                             <div className="pdf__link">
-                                <a href={`https://web-prod.online/${item.urlpdf}`} target="_blank" download>Скачать описание модели PDF</a>
+                                <a href={process.env.REACT_APP_API_URL + "/" + `${item.urlpdf}`} download>Скачать описание модели PDF</a>
                             </div>
 
                             <div className="tizer-row">
@@ -85,7 +85,7 @@ export default function InfoPage() {
                         </div>
                         <div className="description">
                             <h2>Описание</h2>
-                            {item.specinfos?.filter(item => item.title == "Описание").map(({ title, description }) => (
+                            {item.specinfos?.filter(item => item.title === "Описание").map(({ title, description }) => (
                                 <p key={title}>{description}</p>
                             ))}
                         </div>

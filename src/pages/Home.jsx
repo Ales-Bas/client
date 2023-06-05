@@ -21,7 +21,7 @@ export default function Home() {
                     </div>
                 </div >
             </div>
-            <div className='container'>
+            <div className='container__my'>
                 <div className="content__items">
                     <HomeItem title='Каталог техники Doosan' image={menuItem_tk} type="/tkatalog" text={description_tk} />
                     <HomeItem title='Каталог запчастей Doosan' image={menuItem_pk} type="/pkatalog" text={description_pk} />

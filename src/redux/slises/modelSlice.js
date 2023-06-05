@@ -4,10 +4,7 @@ const initialState = {
 
     isSetModel: (false),
 
-    modelNameId: {
-        id: 0,
-        name: "",
-    },
+    modelNameId: {},
     subTypePartId: {
         id: 0,
         name: "",
@@ -24,7 +21,7 @@ const initialState = {
         id: 0,
         name: '',
     },
-
+    isSetSubTypePart: (false),
 }
 
 const modelSlice = createSlice({
@@ -49,6 +46,9 @@ const modelSlice = createSlice({
         setTypePartId(state, action) {
             state.typePartId = action.payload;
         },
+        setIsSetSubTypePart(state, action) {
+            state.isSetSubTypePart = action.payload;
+        },
     },
 });
 
@@ -59,6 +59,7 @@ export const { setIsSetModel,
     setSubTypePartId,
     setTypePartId,
     setPartTypeList,
-    setIsSetTypePart } = modelSlice.actions;
+    setIsSetTypePart,
+    setIsSetSubTypePart } = modelSlice.actions;
 
 export default modelSlice.reducer;

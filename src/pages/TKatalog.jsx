@@ -1,46 +1,42 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Skeleton from '../Components/CardTK/Skeleton';
-import { fetchTehCard, setCategoryId, setCategorySearch } from '../redux/slises/tehCardFilter';
+import { fetchTehCard, setCategoryId, setCategorySearch, setCurrentPage } from '../redux/slises/tehCardFilter';
 import TehCard from '../Components/CardTK/CardTK';
 import Categories from '../Components/Sort/Categories';
+import Pages from '../Components/Pages';
 
 export default function TKatalog() {
     const dispatch = useDispatch();
-    const { categoryId, categorySearch, items, status } = useSelector((state) => state.tehCardFilter);
+    const { categoryId, categorySearch, items, status, currentPage } = useSelector((state) => state.tehCardFilter);
     // категория техники
     const onChangeCategory = (id, categorySearch) => {
         dispatch(setCategoryId(id));
         dispatch(setCategorySearch(categorySearch));
+        dispatch(setCurrentPage(1));
     };
     // получение карточек моделей их фильтрация
     const getTehCard = async () => {
-        /*const order = sort.sortProperty.includes('-') ? 'asc' : 'desc';
-            const sortBy = sort.sortProperty.replace('-', '');
-            const category = categoryId > 0 ? `category=${categoryId}` : '';
-            const search = searchValue ? `&search=${searchValue}` : '';
-    */
+        const page = currentPage ? `page=${currentPage}` : '';
         const category = categoryId > 0 ? `category=${categorySearch}` : '';
         dispatch(
             fetchTehCard({
                 category,
+                page
             }),
         );
         window.scrollTo(0, 0);
     };
 
-    // Если был первый рендер то запрашиваем пиццы
+    // Если был первый рендер то запрашиваем карты техники
     React.useEffect(() => {
         window.scrollTo(0, 0);
         getTehCard();
-    }, [categorySearch]);
+    }, [categorySearch, currentPage,]);
 
     return (
-        <div className="container">
-            <div className="main__teaser">
-                <h1 className="teaser__title">Каталог техники</h1>
-                <span className='accent-bar'></span>
-            </div>
+        <div className="container__my">
+            <h2 className="content__title">Каталог техники DEVELON (Doosan)</h2>
             <div className="content__top">
                 <Categories value={categoryId} onChangeCategory={onChangeCategory} />
             </div>
@@ -54,9 +50,10 @@ export default function TKatalog() {
             ) : (
                 <div className="content__tehcard">
                     {status === 'loading' ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
-                        : items.map((obj) => <TehCard key={obj.id} {...obj} />)}
+                        : items.rows.map((obj) => <TehCard key={obj.id} {...obj} />)}
                 </div>
             )}
+            < Pages />
         </div>
     )
 }
