@@ -1,5 +1,4 @@
 import React from 'react';
-
 import HomeItem from '../Components/HomeItem';
 import menuItem_tk from '../assets/img/menuItem_tk.jpeg';
 import menuItem_pk from '../assets/img/menuItem_pk.jpeg';
@@ -17,7 +16,7 @@ export default function Home() {
                     <div className="home__teaser">
                         <h1 className="teaser__title">СПЕЦАВТОБАТ</h1>
                         <span className='accent-bar'></span>
-                        <p>Официальный дилер главного дистрибьютера Doosan в России</p>
+                        <p>Официальный дилер главного дистрибьютера Develon (Doosan) в России</p>
                     </div>
                 </div >
             </div>

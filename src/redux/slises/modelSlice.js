@@ -9,10 +9,7 @@ const initialState = {
         id: 0,
         name: "",
     },
-    subTypePart: {
-        id: 0,
-        name: "",
-    },
+    subTypePart: [],
     partTypeList: {
         id: 0,
         name: "",

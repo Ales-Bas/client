@@ -521,3 +521,21 @@ body {
 .page-link {
   color: #181510;
 }
+
+//настройки админ панели
+.adminPage {
+  background-image: linear-gradient(to right top, #dfd045, #90d96e, #2cd8a6, #00cfd6, #00c1ef, #39c0f3, #54c0f6, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  height: 600px;
+}
+
+//редактор запчастей
+.newpart__page {
+  background-image: linear-gradient(to right top, #dfd045, #90d96e, #2cd8a6, #00cfd6, #00c1ef, #39c0f3, #54c0f6, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  height: 600px;
+}
+
+.new__part {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}

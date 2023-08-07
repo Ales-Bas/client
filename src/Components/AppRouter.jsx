@@ -2,9 +2,11 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { authRoutes, publicRoutes } from '../router';
 import { HOME_ROUTE } from '../utils/consts';
+import { useSelector } from 'react-redux';
 
 export default function AppRouter() {
-    const isAuth = true
+    const { isAuth } = useSelector((state) => state.user);
+
     return (
         <Routes>
             {isAuth && authRoutes.map(({ path, Component }) =>

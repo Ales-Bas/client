@@ -20,7 +20,6 @@ export const authRoutes = [
         path: REGISTRATION_ROUTE,
         Component: <AuthPage />
     },
-
 ]
 
 export const publicRoutes = [
