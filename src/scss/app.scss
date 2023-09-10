@@ -104,12 +104,10 @@ body {
   &__infopage {
     margin: 50px 0px;
   }
-}
 
-.search__panel {
-  display: flex;
-  margin-bottom: 20px;
-  justify-content: flex-end;
+  &__searchpage {
+    margin: 20px 0 20px 0;
+  }
 }
 
 .grid-infopage {
@@ -152,6 +150,14 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  margin-bottom: 20px;
+
+  .text_connection {
+    display: flex;
+    font-size: 20px;
+    margin-right: 15px;
+    align-items: center;
+  }
 }
 
 .spec-tizer_li {
@@ -538,4 +544,41 @@ body {
   border: 1px solid black;
   border-radius: 5px;
   padding: 10px;
+}
+
+//страница поиска
+.searchSpinner {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.search__link {
+  cursor: pointer;
+
+  &:hover {
+    color: #DFD045;
+  }
+}
+
+.search__panel {
+  display: flex;
+  margin: 20px 0 20px 0;
+  justify-content: center;
+}
+
+.action__tizer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0px 2px 14px 3px rgba(9, 10, 11, 0.1);
+  -moz-box-shadow: 0px 2px 14px 3px rgba(9, 10, 11, 0.1);
+  box-shadow: 0px 2px 14px 3px rgba(9, 10, 11, 0.1);
+
+  @media (max-width: 840px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }

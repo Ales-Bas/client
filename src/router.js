@@ -7,9 +7,10 @@ import ItemPage from './pages/ItemPage';
 import InfoPage from './pages/InfoPage';
 import ServicePage from './pages/ServicePage';
 import CompanyPage from './pages/CompanyPage';
-import { ADMIN_ROUTE, CART_ROUTE, COMPANY_ROUTE, HOME_ROUTE, INFOPAGE_ROUTE, LOGIN_ROUTE, PKATALOG_ROUTE, REGISTRATION_ROUTE, SERVICE_ROUTE, TKATALOG_ROUTE, TYPEPART_ROUTE } from './utils/consts';
+import { ADMIN_ROUTE, CART_ROUTE, COMPANY_ROUTE, HOME_ROUTE, INFOPAGE_ROUTE, LOGIN_ROUTE, PKATALOG_ROUTE, REGISTRATION_ROUTE, SERVICE_ROUTE, TKATALOG_ROUTE, TYPEPART_ROUTE, SEARCHPAGE_ROUTE } from './utils/consts';
 import AdminPage from './pages/AdminPage';
 import AuthPage from './pages/AuthPage';
+import SearchPage from './pages/searchPage';
 
 export const authRoutes = [
     {
@@ -58,5 +59,9 @@ export const publicRoutes = [
     {
         path: LOGIN_ROUTE,
         Component: <AuthPage />
+    },
+    {
+        path: SEARCHPAGE_ROUTE,
+        Component: <SearchPage />
     },
 ]

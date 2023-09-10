@@ -4,7 +4,8 @@ import cart from './slises/cartSlice';
 import modelSideBar from './slises/modelFilterSlice';
 import tehCardFilter from './slises/tehCardFilter';
 import infoPageSlice from './slises/infoPageSlice';
-import user from './slises/userSlice'
+import user from './slises/userSlice';
+import partSearchSlice from './slises/partSearchSlice';
 
 export const store = configureStore({
     reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
         modelSideBar,
         tehCardFilter,
         infoPageSlice,
-        user
+        user,
+        partSearchSlice
     },
 });

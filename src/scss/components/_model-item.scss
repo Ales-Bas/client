@@ -10,7 +10,7 @@
 .model-item__title {
     color: aliceblue;
     display: grid;
-    justify-content: center;
+    text-align: center; //justify-content: center;
     align-content: center;
     font-size: 16px;
     width: 240px;
@@ -20,6 +20,7 @@
     margin-bottom: 20px;
     margin-left: 5px;
     cursor: pointer;
+    padding-left: 10px;
 
     &:hover {
         border: 2px solid #ffff00;

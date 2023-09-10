@@ -2,9 +2,8 @@ import React from 'react';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchModelList } from '../../redux/slises/modelFilterSlice';
-
 import { setModelNameId, setSubTypePartId, setIsSetModel } from '../../redux/slises/modelSlice';
-//import styles from './Cart/Cart.module.scss';
+import styles from './Sidebar.module.scss';
 
 export default function MySideBar() {
     const dispatch = useDispatch();
@@ -32,7 +31,7 @@ export default function MySideBar() {
 
     return (
         < div >
-            <Sidebar>
+            <Sidebar className={styles.root}            >
                 <Menu>
                     <SubMenu label="Экскаваторы" >
                         <SubMenu label="Гусеничные">
@@ -88,10 +87,6 @@ export default function MySideBar() {
                                 </MenuItem>
                             ))}
                         </SubMenu>
-                    </SubMenu>
-                    <SubMenu label="Навесное оборудование">
-                        <MenuItem> mini 444 </MenuItem>
-                        <MenuItem> mini 555</MenuItem>
                     </SubMenu>
                 </Menu>
             </Sidebar>

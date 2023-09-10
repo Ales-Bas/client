@@ -3,6 +3,7 @@ import HomeItem from '../Components/HomeItem';
 import menuItem_tk from '../assets/img/menuItem_tk.jpeg';
 import menuItem_pk from '../assets/img/menuItem_pk.jpeg';
 import menuItem_servis from '../assets/img/menuItem_servis.jpeg'
+import ActionTizer from '../Components/ActionTizer';
 
 const description_tk = "Поставка строительной техники Doosan, индивидуальный подход к каждому клиенту, возможна поставка нестандартных комплектующих.";
 const description_pk = "Оригинальные запчасти Doosan  в наличии и под заказ.";
@@ -21,6 +22,7 @@ export default function Home() {
                 </div >
             </div>
             <div className='container__my'>
+                <ActionTizer />
                 <div className="content__items">
                     <HomeItem title='Каталог техники Doosan' image={menuItem_tk} type="/tkatalog" text={description_tk} />
                     <HomeItem title='Каталог запчастей Doosan' image={menuItem_pk} type="/pkatalog" text={description_pk} />

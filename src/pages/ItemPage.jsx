@@ -14,7 +14,6 @@ export default function ItemPage() {
     const cartItem = useSelector((state) => state.cart.partItems);
     const modelName = useSelector((state) => state.models.modelNameId);
     const [dataSource, setDataSource] = React.useState([]);
-    const [buttonId, setButtonId] = React.useState([]);
 
     React.useEffect(() => {
         axios.get(`https://web-prod.online/api/typepart/${id}`) //https://web-prod.online
@@ -33,15 +32,7 @@ export default function ItemPage() {
         }
 
         dispatch(addPartItems(partItem));
-        setButtonId(partItem.partsno);
-        console.log(`Добавление батонсайди: ${buttonId}`);
     };
-
-    console.log(cartItem);
-
-    //.find(obj => obj.id === buttonId) 
-    //const addedCount = cartItem ? cartItem.count : 0;
-
 
     return (
         <div>
@@ -69,7 +60,7 @@ export default function ItemPage() {
                                 <td>{item.description}</td>
                                 <td><button onClick={() => handleView(item)} className="button button--outline button--add" >
                                     <span>Добавить</span>
-                                    {cartItem.map((item) => (buttonId === item.partsno && <i>{item.count}</i>))}
+                                    {cartItem.map((i) => (item.id === i.id && <i key={i.id}>{i.count}</i>))}
                                 </button>{' '}</td>
                             </tr>
                         ))}

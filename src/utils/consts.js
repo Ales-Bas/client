@@ -9,4 +9,5 @@ export const LOGIN_ROUTE = '/login';
 export const REGISTRATION_ROUTE = '/registration';
 export const COMPANY_ROUTE = '/company';
 export const SERVICE_ROUTE = '/service';
+export const SEARCHPAGE_ROUTE = '/pkatalog/search';
 

@@ -1,5 +1,9 @@
 .root {
     position: relative;
+
+    @media (max-width: 450px) {
+        display: flex;
+    }
 }
 
 .input {
@@ -7,13 +11,19 @@
     padding: 10px 15px;
     padding-left: 30px !important;
     width: 350px;
-    border-radius: 0 8px 8px 0;
+    border-radius: 8px 0 0 8px;
     font-size: 16px;
+
+    @media (max-width: 464px) {
+        width: 300px;
+    }
 
     &:focus {
         border: 1px solid rgba(0, 0, 0, 0.2);
     }
 }
+
+
 
 .icon {
     width: 22px;
@@ -21,7 +31,7 @@
     opacity: 0.4;
     position: absolute;
     left: 5px;
-    top: 3px;
+    top: 10px;
 }
 
 .clearIcon {
@@ -30,7 +40,7 @@
     opacity: 0.4;
     position: absolute;
     left: 326px;
-    top: 5px;
+    top: 13px;
     cursor: pointer;
 
     &:hover {

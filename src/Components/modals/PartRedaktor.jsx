@@ -59,6 +59,7 @@ export default function PartRedaktor({ show, onHide }) {
         const ws = wb.Sheets[wb.SheetNames[0]];
         const jsonData = utils.sheet_to_json(ws);
         setPartinfo(jsonData);
+        console.log('Отработал парсинг', jsonData)
     }
 
     return (
@@ -116,8 +117,7 @@ export default function PartRedaktor({ show, onHide }) {
 
             </Modal.Body>
             <div className="ep">
-                <input type="file" onChange={(e) => handleFile(e)} />
-
+                <input type="file" multiple onChange={(e) => handleFile(e)} />
             </div>
             <Modal.Footer>
                 <Button variant="outline-danger" onClick={onHide}>Закрыть</Button>

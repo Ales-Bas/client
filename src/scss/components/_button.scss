@@ -173,4 +173,13 @@
   &--infopage {
     width: 400px;
   }
+
+  &--search {
+    border-radius: 0 8px 8px 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  &--connection {
+    border-radius: 8px 8px 8px 8px;
+  }
 }

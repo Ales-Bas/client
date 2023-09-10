@@ -29,7 +29,6 @@ export default function ModelItem() {
         }))
 
     };
-    console.log(' а тут уже логирование работы выбора запчасти', typePartId);
     return (
 
         <div className='model-item'>

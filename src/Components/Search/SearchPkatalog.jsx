@@ -1,20 +1,33 @@
 import React from 'react';
 import { SearchPContext } from '../../App';
 import closeicon from '../Search/close_icon.svg';
-
-
+import { useNavigate } from 'react-router-dom';
 import styles from './Search.module.scss'
+import { fetchSearchParts } from '../../redux/slises/partSearchSlice';
+import { useDispatch } from 'react-redux';
 
 const SearchPkatalog = () => {
-
     const { searchPValue, setSearchPValue } = React.useContext(SearchPContext);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const inputRef = React.useRef();
-    console.log(searchPValue);
+
     const onClickClear = () => {
         setSearchPValue('');
         inputRef.current.focus();
-        //setValue('');
+    };
+    const sendSearch = () => {
+        getSearchParts();
+        navigate(`/pkatalog/search`);
+    };
 
+    const getSearchParts = async () => {
+        const partnumber = `partnumber=${searchPValue}`;
+        dispatch(
+            fetchSearchParts({
+                partnumber,
+            }),
+        );
     };
 
 
@@ -29,10 +42,11 @@ const SearchPkatalog = () => {
             <input
                 ref={inputRef}
                 value={searchPValue}
-                onChange={(event) => setSearchPValue(event.target.value)}
+                onChange={(event) => setSearchPValue(event.target.value.toUpperCase())}
                 className={styles.input}
                 placeholder='Поиск по номеру детали' />
             {searchPValue && (<img onClick={onClickClear} className={styles.clearIcon} src={closeicon} alt="Close logo" />)}
+            <div className="button button--search" onClick={sendSearch}>Найти</div>
         </div>
     )
 }
