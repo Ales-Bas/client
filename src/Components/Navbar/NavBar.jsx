@@ -12,11 +12,11 @@ export default function NavBar() {
     return (
         <nav className={burgerClick ? [styles.navbar, styles.active].join(' ') : [styles.navbar]}>
             <ul>
-                <li><NavLink className={({ isActive }) => isActive ? [styles.menuActive] : ""} to={HOME_ROUTE} >Главная</NavLink></li>
-                <li><NavLink className={({ isActive }) => isActive ? [styles.menuActive] : ""} to={TKATALOG_ROUTE} >Техника Doosan</NavLink></li>
-                <li><NavLink to={PKATALOG_ROUTE} className={({ isActive }) => isActive ? [styles.menuActive] : ""}>Запчасти Doosan</NavLink></li>
-                <li><NavLink to={SERVICE_ROUTE} className={({ isActive }) => isActive ? [styles.menuActive] : ""}>Сервис</NavLink></li>
-                <li><NavLink to={COMPANY_ROUTE} className={({ isActive }) => isActive ? [styles.menuActive] : ""}>О компании</NavLink></li>
+                <li><NavLink onClick={() => setBurgerClick(!burgerClick)} className={({ isActive }) => isActive ? [styles.menuActive] : ""} to={HOME_ROUTE} >Главная</NavLink></li>
+                <li><NavLink onClick={() => setBurgerClick(!burgerClick)} className={({ isActive }) => isActive ? [styles.menuActive] : ""} to={TKATALOG_ROUTE} >Техника Doosan</NavLink></li>
+                <li><NavLink onClick={() => setBurgerClick(!burgerClick)} to={PKATALOG_ROUTE} className={({ isActive }) => isActive ? [styles.menuActive] : ""}>Запчасти Doosan</NavLink></li>
+                <li><NavLink onClick={() => setBurgerClick(!burgerClick)} to={SERVICE_ROUTE} className={({ isActive }) => isActive ? [styles.menuActive] : ""}>Сервис</NavLink></li>
+                <li><NavLink onClick={() => setBurgerClick(!burgerClick)} to={COMPANY_ROUTE} className={({ isActive }) => isActive ? [styles.menuActive] : ""}>О компании</NavLink></li>
                 <li onClick={() => window.scrollTo(5000, 5000)}><Link>Контакты</Link></li>
             </ul>
             <div onClick={() => setBurgerClick(!burgerClick)} className={styles.burger_btn}>

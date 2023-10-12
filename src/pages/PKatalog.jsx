@@ -4,7 +4,7 @@ import MySideBar from '../Components/Sidebar/Sidebar';
 import { useSelector, useDispatch } from 'react-redux';
 import ModelItem from '../Components/ModelItem';
 import styles from './Cart/Cart.module.scss';
-import { setSubTypePart, setPartTypeList } from '../redux/slises/modelSlice';
+import { setSubTypePart, setPartTypeList, setSubTypePartId } from '../redux/slises/modelSlice';
 import ActionTizer from '../Components/ActionTizer';
 
 export default function PKatalog() {
@@ -33,6 +33,14 @@ export default function PKatalog() {
                 dispatch(setPartTypeList(res.data));
             });
     }, [modelNameId, subTypePartId, partTypeList, dispatch]);
+
+    const resetTypePartId = () => {
+        dispatch(setSubTypePartId({
+            id: 0,
+            name: ""
+        }));
+        window.scrollTo(0, 300);
+    };
 
     return (
         <div className='container__my'>
@@ -64,6 +72,15 @@ export default function PKatalog() {
                             )}
                         </div>
                         <ModelItem />
+                        <div onClick={resetTypePartId} className="cart__bottom-buttons">
+                            <div className="button button--outline button--add go-back-btn">
+                                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 13L1 6.93015L6.86175 1" stroke="#D3D3D3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+
+                                <span> к выбору раздела запчастей</span>
+                            </div>
+                        </div>
                     </div>
                 )
                     : (

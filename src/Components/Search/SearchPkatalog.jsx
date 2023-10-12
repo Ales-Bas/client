@@ -3,7 +3,7 @@ import { SearchPContext } from '../../App';
 import closeicon from '../Search/close_icon.svg';
 import { useNavigate } from 'react-router-dom';
 import styles from './Search.module.scss'
-import { fetchSearchParts } from '../../redux/slises/partSearchSlice';
+import { fetchSearchParts, setSearchtext } from '../../redux/slises/partSearchSlice';
 import { useDispatch } from 'react-redux';
 
 const SearchPkatalog = () => {
@@ -17,8 +17,10 @@ const SearchPkatalog = () => {
         inputRef.current.focus();
     };
     const sendSearch = () => {
+        dispatch(setSearchtext(searchPValue));
         getSearchParts();
         navigate(`/pkatalog/search`);
+        setSearchPValue('');
     };
 
     const getSearchParts = async () => {

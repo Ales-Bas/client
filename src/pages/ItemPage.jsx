@@ -20,6 +20,7 @@ export default function ItemPage() {
             .then((res) => {
                 setDataSource(res.data);
             });
+        window.scrollTo(0, 0);
     }, [id]);
 
 

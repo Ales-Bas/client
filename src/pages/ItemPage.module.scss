@@ -3,16 +3,26 @@
     grid-template-columns: 2fr 3fr;
     grid-gap: 5px;
 
+    @media (max-width: 646px) {
+        grid-template-rows: 1fr;
+        grid-template-columns: none;
+    }
+
     img {
         width: 98%;
         position: sticky;
         top: 0;
+
+        @media (max-width: 646px) {
+            width: 100%;
+            order: -1;
+            position: inherit;
+            ;
+        }
     }
 }
 
 h2 {
     display: flex;
     justify-content: center;
-
-
 }

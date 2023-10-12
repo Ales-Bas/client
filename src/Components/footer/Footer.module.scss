@@ -8,11 +8,12 @@
     h3,
     h4,
     p {
-        color: #ffff;
+        color: #dfd045;
     }
 
     h4 {
-        margin-bottom: 35px;
+        margin-bottom: 10px;
+        margin-left: 10px;
     }
 
 }
@@ -27,6 +28,41 @@
     @media (max-width: 750px) {
         flex-direction: column;
     }
+}
 
+.footer_contact {
 
+    position: relative;
+
+    img {
+        color: aliceblue;
+        width: 25px;
+        height: 25px;
+        position: absolute;
+
+    }
+
+    h4 {
+        padding-left: 40px;
+    }
+
+    a {
+        display: block;
+        text-decoration: none !important;
+        color: #fff;
+        width: fit-content;
+        padding-left: 40px;
+        font-weight: 300;
+        font-size: calc(1rem + .3vw);
+        line-height: 1.2;
+
+        &:hover {
+            color: #DFD045;
+        }
+    }
+
+    p {
+        margin: 0 10px 0 10px;
+        font-size: calc(1.275rem + .3vw);
+    }
 }

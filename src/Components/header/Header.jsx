@@ -1,23 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import NavBar from '../Navbar/NavBar';
-import logoSvg from '../../assets/img/logo.svg';
+import logoSvg from '../../assets/img/logo_color.svg';
+
 
 
 export default function Header() {
+    const navigate = useNavigate();
     const { partItems } = useSelector((state) => state.cart);
     const totalCount = partItems.reduce((sum, partItem) => sum + partItem.count, 0);
     return (
         <header className="header">
             <div className="header__container">
-                <div className="header__logo">
+                <div className="header__logo" onClick={() => { navigate("/") }}>
+
                     <img width="38" src={logoSvg} alt="logo" />
-                    <div>
-                        <h1>ООО СпецАвтоБат</h1>
-                        <p>запчасти и комплектующие</p>
-                    </div>
+                    <h1>СпецАвтоБат</h1>
+
                 </div>
                 <NavBar />
                 <div className="header__cart">

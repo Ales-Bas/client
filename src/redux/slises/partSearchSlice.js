@@ -11,6 +11,7 @@ export const fetchSearchParts = createAsyncThunk(
 
 const initialState = {
     parts: [],
+    searchtext: '',
     status: 'loading', // loading | success | error
 }
 export const partSearchSlice = createSlice({
@@ -19,6 +20,9 @@ export const partSearchSlice = createSlice({
     reducers: {
         setParts(state, action) {
             state.parts = action.payload;
+        },
+        setSearchtext(state, action) {
+            state.searchtext = action.payload;
         },
     },
     extraReducers: {
@@ -39,6 +43,7 @@ export const partSearchSlice = createSlice({
 
 export const {
     setParts,
+    setSearchtext,
 } = partSearchSlice.actions;
 
 export default partSearchSlice.reducer;

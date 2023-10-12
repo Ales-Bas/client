@@ -6,14 +6,16 @@ import { addPartItems } from '../redux/slises/cartSlice';
 import { useNavigate } from 'react-router-dom';
 import { setModelNameId } from '../redux/slises/modelSlice'
 import ActionTizer from '../Components/ActionTizer';
-import { SearchPContext } from '../App';
 
 export default function SearchPage() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { searchPValue } = React.useContext(SearchPContext);
-    const { parts, status } = useSelector((state) => state.partSearchSlice);
+    const { parts, status, searchtext } = useSelector((state) => state.partSearchSlice);
     const cartItem = useSelector((state) => state.cart.partItems);
+
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const handleView = (rowData) => {
         const partItem = {
@@ -37,18 +39,18 @@ export default function SearchPage() {
             {status === 'error' ?
                 (<div className='content__error-info'>
                     <h2>Не удалось выполнить поиск</h2>
-                    <p>
-                        Проверьте коректность введенных данных.
-                    </p>
+                    <h2>
+                        Проверьте корректность введенных данных.
+                    </h2>
                 </div>)
                 :
                 (<div className="content__searchpage">
                     {status === 'loading' ? <div className="searchSpinner"><Spiner /></div>
                         : parts.length !== 0 &&
                         <>
-                            <h4>Результат поиска для {searchPValue} </h4>
-                            <div className="search__table">
-                                <Table striped bordered hover size="sm">
+                            <h4>Результат поиска для {searchtext} </h4>
+                            <div className="search__table table-responsive" >
+                                <Table striped bordered hover size="sm" className="align-middle">
                                     <thead>
                                         <tr>
                                             <th>Key</th>

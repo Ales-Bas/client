@@ -39,6 +39,8 @@
     display: flex;
     align-items: center;
     grid-area: A;
+    cursor: pointer;
+
 
     img {
       margin-right: 5px;
@@ -47,9 +49,9 @@
 
     h1 {
       color: #fff;
-      font-size: 20px;
+      font-size: 25px;
       letter-spacing: 1%;
-      text-transform: uppercase;
+      //text-transform: uppercase;
       font-weight: 800;
     }
 

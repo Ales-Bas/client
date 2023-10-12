@@ -17,7 +17,8 @@ export default function Home() {
                     <div className="home__teaser">
                         <h1 className="teaser__title">СПЕЦАВТОБАТ</h1>
                         <span className='accent-bar'></span>
-                        <p>Официальный дилер главного дистрибьютера Develon (Doosan) в России</p>
+                        <p>Официальный дилер и сервис-дилер ООО "Трансмехсервис" дистрибъютера DEVELON
+                            (DOOSAN INFRACORE) на территории Российской Федерации.</p>
                     </div>
                 </div >
             </div>

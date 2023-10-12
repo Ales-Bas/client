@@ -1,53 +1,21 @@
 import React from 'react';
 import axios from 'axios';
 import Modal from "react-bootstrap/Modal";
-import { Button } from "react-bootstrap";
-import { Formik, Form, useField } from 'formik';
+import { Form, Row } from "react-bootstrap";
+import * as formik from 'formik';
 import * as Yup from 'yup';
 import { clearPartItems } from '../../redux/slises/cartSlice';
 import { useDispatch } from 'react-redux';
 
 import styles from './SendCart.module.scss';
 
-const MyTextInput = ({ label, ...props }) => {
-    // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-    // which we can spread on <input>. We can use field meta to show an error
-    // message if the field is invalid and it has been touched (i.e. visited)
-    const [field, meta] = useField(props);
-    return (
-        <>
-            <label htmlFor={props.id || props.name}>{label}</label>
-            <input className="text-input" {...field} {...props} />
-            {meta.touched && meta.error ? (
-                <div className="error">{meta.error}</div>
-            ) : null}
-        </>
-    );
-};
-
-const MyCheckbox = ({ children, ...props }) => {
-    // React treats radios and checkbox inputs differently other input types, select, and textarea.
-    // Formik does this too! When you specify `type` to useField(), it will
-    // return the correct bag of props for you -- a `checked` prop will be included
-    // in `field` alongside `name`, `value`, `onChange`, and `onBlur`
-    const [field, meta] = useField({ ...props, type: 'checkbox' });
-    return (
-        <div>
-            <label className="checkbox-input">
-                <input type="checkbox" {...field} {...props} />
-                {children}
-            </label>
-            {meta.touched && meta.error ? (
-                <div className="error">{meta.error}</div>
-            ) : null}
-        </div>
-    );
-};
-
-
-{/*const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/*/ }
+const nameRegExp = /^[а-яё -]+$/i
+const phoneRegExp = /^((8|\+7)[- ]?)?(\(?\d{3}\)?[- ]?)?[\d\- ]{7,10}$/
+const comentRegExp = /^[?!,.()а-яА-ЯёЁ0-9\s]+$/
+//const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
 export default function SendCart({ show, onHide, partItems }) {
+    const { Formik } = formik;
     const dispatch = useDispatch();
     return (
         <Modal
@@ -57,7 +25,7 @@ export default function SendCart({ show, onHide, partItems }) {
             centered
         >
             <Modal.Header closeButton>
-                <Modal.Title id="contained-modal-title-vcenter">
+                <Modal.Title id="contained-modal-title-vcenter" className={styles.headerStyle}>
                     Мы проверим наличие и цену вашего заказа и свяжемся с вами
                 </Modal.Title>
             </Modal.Header>
@@ -74,67 +42,145 @@ export default function SendCart({ show, onHide, partItems }) {
                     validationSchema={Yup.object({
                         name: Yup.string()
                             .max(20, 'Must be 15 characters or less')
-                            .required('Required'),
+                            .matches(nameRegExp, { message: "Используйте буквы русского алфавита" })
+                            .required('Вы не ввели имя'),
                         phone: Yup.string()
                             .max(20, 'Must be 20 characters or less')
-                            .required('Required'),
+                            .matches(phoneRegExp, { message: "Это поле содержит только цифры" })
+                            .required('Вы не ввели телефон'),
                         email: Yup.string()
-                            .email('Некорректно введен адрес')
-                            .required('Required'),
+                            .email('Некорректно введен адрес почты')
+                            .required('Вы не ввели почту'),
+                        coment: Yup.string()
+                            .matches(comentRegExp, { message: "Используйте буквы русского алфавита" }),
                         acceptedTerms: Yup.boolean()
-                            .required('Required')
-                            .oneOf([true], 'You must accept the terms and conditions.'),
+                            .required('Примите согласие на обработку данных')
+                            .oneOf([true], 'Примите согласие на обработку данных'),
                     })}
-                    onSubmit={(values, { setSubmitting }) => {
+                    onSubmit={(values) => {
                         setTimeout(() => {
                             axios.post(`https://web-prod.online/api/cartsend`, values)
                                 .then((res) => {
                                     alert('Ваш заказ успешно добавлен.');
                                 });
-
-                            setSubmitting(false);
+                            //setSubmitting(false);
                             dispatch(clearPartItems());
                         }, 400);
                     }}
                 >
-                    <Form className={styles.modalStyle}>
-                        <MyTextInput
-                            label="Имя"
-                            name="name"
-                            type="text"
-                            placeholder="Введите Имя"
-                        />
-
-                        <MyTextInput
-                            label="Телефон"
-                            name="phone"
-                            type="text"
-                            placeholder="+7"
-                        />
-
-                        <MyTextInput
-                            label="Электронная почта"
-                            name="email"
-                            type="email"
-                            placeholder="Введите адрес электронной почты"
-                        />
-                        <MyTextInput
-                            label="Комментарий"
-                            name="coment"
-                            type="text"
-                            placeholder="Здесь можно оставить коментарий"
-                        />
-                        <MyCheckbox name="acceptedTerms">
-                            Я не робот
-                        </MyCheckbox>
-
-                        <button type="submit" onClick={onHide}>Отправить</button>
-                    </Form>
+                    {({ handleSubmit, handleChange, values, touched, errors }) => (
+                        <Form noValidate onSubmit={handleSubmit} className={styles.modalStyle}>
+                            <Row className="mb-3">
+                                <Form.Group
+                                    controlId="validationFormik101"
+                                    className="position-relative"
+                                >
+                                    <Form.Label>Ваше имя</Form.Label>
+                                    <Form.Control
+                                        label="Имя"
+                                        name="name"
+                                        type="text"
+                                        placeholder="Введите имя"
+                                        isInvalid={!!errors.name}
+                                        isValid={touched.name && !errors.name}
+                                        value={values.name}
+                                        onChange={handleChange}
+                                    />
+                                    <Form.Control.Feedback type="invalid" tooltip>
+                                        {errors.name}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                            </Row>
+                            <Row className="mb-3">
+                                <Form.Group
+                                    controlId="validationFormik102"
+                                    className="position-relative"
+                                >
+                                    <Form.Label>Телефон</Form.Label>
+                                    <Form.Control
+                                        label="Телефон"
+                                        name="phone"
+                                        type="text"
+                                        placeholder="Номер телефона в любом формате"
+                                        value={values.phone}
+                                        isInvalid={!!errors.phone}
+                                        isValid={touched.phone && !errors.phone}
+                                        onChange={handleChange}
+                                    />
+                                    <Form.Control.Feedback type="invalid" tooltip>
+                                        {errors.phone}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                            </Row>
+                            <Row className="mb-3">
+                                <Form.Group
+                                    controlId="validationFormik103"
+                                    className="position-relative"
+                                >
+                                    <Form.Label>Ваш электронная почта</Form.Label>
+                                    <Form.Control
+                                        label="Электронная почта"
+                                        name="email"
+                                        type="email"
+                                        placeholder="Введите адрес электронной почты"
+                                        value={values.email}
+                                        isInvalid={!!errors.email}
+                                        isValid={touched.email && !errors.email}
+                                        onChange={handleChange}
+                                    />
+                                    <Form.Control.Feedback type="invalid" tooltip>
+                                        {errors.email}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                            </Row>
+                            <Row className="mb-3">
+                                <Form.Group
+                                    controlId="validationFormik104"
+                                    className="position-relative"
+                                >
+                                    <Form.Label >Здесь можно оставить коментарий</Form.Label>
+                                    <Form.Control
+                                        as="textarea"
+                                        rows={3}
+                                        label="Комментарий"
+                                        name="coment"
+                                        type="text"
+                                        placeholder="Здесь можно оставить коментарий"
+                                        value={values.coment}
+                                        isInvalid={!!errors.coment}
+                                        isValid={touched.coment && !errors.coment}
+                                        onChange={handleChange}
+                                    />
+                                    <Form.Control.Feedback type="invalid" tooltip>
+                                        {errors.coment}
+                                    </Form.Control.Feedback>
+                                </Form.Group>
+                            </Row>
+                            <Form.Group
+                                controlId="validationFormik106"
+                                className="position-relative"
+                            >
+                                <Form.Check
+                                    required
+                                    name="acceptedTerms"
+                                    label="Я подтверждаю разрешение на обработку персональных данных"
+                                    onChange={handleChange}
+                                    isInvalid={!!errors.acceptedTerms}
+                                    feedback={errors.acceptedTerms}
+                                    feedbackType="invalid"
+                                    id="validationFormik106"
+                                    feedbackTooltip
+                                />
+                            </Form.Group>
+                            <hr />
+                            <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button className="button" type="submit">Отправить</button>
+                                <button className="button button--black" type="button" onClick={onHide}>Закрыть</button>
+                            </div>
+                        </Form>
+                    )}
                 </Formik>
             </Modal.Body>
-            <Modal.Footer>
-                <Button variant="outline-danger" onClick={onHide}>Закрыть</Button>
-            </Modal.Footer>
         </Modal>
     )
 }
