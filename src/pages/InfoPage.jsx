@@ -40,7 +40,7 @@ export default function InfoPage() {
                     <div className="grid-infopage">
                         <div className="img-section">
                             {status === 'loading' ? <Spiner />
-                                : <CaruselTK urlimg={item.urlimg} urlimgone={item.urlimgone} urlimgtwo={item.urlimgtwo} urlimgethree={item.urlimgethree} />}
+                                : <CaruselTK urlimgone={item.urlimgone} urlimgtwo={item.urlimgtwo} urlimgethree={item.urlimgethree} />}
                         </div>
                         <div className="spec-tizer">
                             <h2 className="tizer-title">{item.model}</h2>
@@ -101,7 +101,7 @@ export default function InfoPage() {
                         </div>
                     </div>
                     <div>
-                        <ConnectionModal show={modalVisible} onHide={() => setModalVisible(false)} />
+                        <ConnectionModal show={modalVisible} onHide={() => setModalVisible(false)} topic={item.model} />
                     </div>
                 </div>
 

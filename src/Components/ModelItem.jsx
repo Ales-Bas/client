@@ -8,7 +8,7 @@ export default function ModelItem() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const subTypePart = useSelector((state) => state.models.subTypePart);
-    const typePartId = useSelector((state) => state.models.typePartId);
+    //const typePartId = useSelector((state) => state.models.typePartId);
     const partTypeList = useSelector((state) => state.models.partTypeList);
     const subTypePartId = useSelector((state) => state.models.subTypePartId);
     const modelNameId = useSelector((state) => state.models.modelNameId);
@@ -41,6 +41,7 @@ export default function ModelItem() {
                         onClick={() => onChangeTypePart({ id, name })}
                     >{name}</h4>
                 ))
+
 
             )
                 : (

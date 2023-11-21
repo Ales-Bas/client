@@ -26,7 +26,7 @@ export default function PartRedaktor({ show, onHide }) {
 
     React.useEffect(() => {
         getModelList();
-        axios.get(`https://web-prod.online/api/subtype`) //https://web-prod.online/api/subtype
+        axios.get(`https://develonbdb.ru/api/subtype`) //https://web-prod.online/api/subtype
             .then((res) => {
                 dispatch(setSubTypePart(res.data));
             });

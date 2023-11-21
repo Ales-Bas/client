@@ -16,7 +16,7 @@ export default function ItemPage() {
     const [dataSource, setDataSource] = React.useState([]);
 
     React.useEffect(() => {
-        axios.get(`https://web-prod.online/api/typepart/${id}`) //https://web-prod.online
+        axios.get(`https://develonbdb.ru/api/typepart/${id}`) //https://web-prod.online
             .then((res) => {
                 setDataSource(res.data);
             });
@@ -68,7 +68,7 @@ export default function ItemPage() {
                     </tbody>
                 </Table>
                 <img
-                    src={`https://web-prod.online/${dataSource.imgurl}`}
+                    src={process.env.REACT_APP_API_URL + "/" + `${dataSource.imgurl}`}
                     alt='Рисунок узла'
                 />
             </div>

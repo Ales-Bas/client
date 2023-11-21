@@ -59,7 +59,7 @@ export default function SendCart({ show, onHide, partItems }) {
                     })}
                     onSubmit={(values) => {
                         setTimeout(() => {
-                            axios.post(`https://web-prod.online/api/cartsend`, values)
+                            axios.post(`https://develonbdb.ru/api/cartsend`, values)
                                 .then((res) => {
                                     alert('Ваш заказ успешно добавлен.');
                                 });

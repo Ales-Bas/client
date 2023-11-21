@@ -6,6 +6,8 @@ import tehCardFilter from './slises/tehCardFilter';
 import infoPageSlice from './slises/infoPageSlice';
 import user from './slises/userSlice';
 import partSearchSlice from './slises/partSearchSlice';
+import navesCardSlice from './slises/navesCardSlice';
+import navesInfoSlice from './slises/navesInfoSlice';
 
 export const store = configureStore({
     reducer: {
@@ -15,6 +17,8 @@ export const store = configureStore({
         tehCardFilter,
         infoPageSlice,
         user,
-        partSearchSlice
+        partSearchSlice,
+        navesCardSlice,
+        navesInfoSlice
     },
 });

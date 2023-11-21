@@ -7,7 +7,8 @@ const missionList = [
     { name: "Колесный экскаватор" },
     { name: "Гусеничный экскаватор" },
     { name: "Фронтальный погрузчик DL" },
-    { name: "Фронтальный погрузчик SD" }
+    { name: "Фронтальный погрузчик SD" },
+    { name: "Фронтальный погрузчик MEGA" }
 ]
 
 export default function CreatePartModel({ show, onHide }) {

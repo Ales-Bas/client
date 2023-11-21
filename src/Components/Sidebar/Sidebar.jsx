@@ -31,16 +31,21 @@ export default function MySideBar() {
 
     return (
         < div >
-            <Sidebar className={styles.root}            >
+            <Sidebar className={styles.root} >
                 <Menu>
                     <SubMenu label="Экскаваторы" >
-                        <SubMenu label="Гусеничные">
+                        <SubMenu label="Гусеничные"
+                        >
                             {modelList.filter(item => item.mission === "Гусеничный экскаватор").map(({ id, name, mission, urlpic }) => (
                                 <MenuItem
                                     key={id}
                                     name={name}
                                     onClick={() => onChangeModelName({ id, name, mission, urlpic })}
-                                > {name}
+                                >
+                                    <img src={process.env.REACT_APP_API_URL + "/" + urlpic}
+                                        alt="imgmodel"
+                                    />
+                                    {name}
                                 </MenuItem>
                             ))}
                         </SubMenu>
@@ -51,6 +56,9 @@ export default function MySideBar() {
                                     name={name}
                                     onClick={() => onChangeModelName({ id, name, mission, urlpic })}
                                 >
+                                    <img src={process.env.REACT_APP_API_URL + "/" + urlpic}
+                                        alt="imgmodel"
+                                    />
                                     {name}
                                 </MenuItem>
                             ))}
@@ -63,7 +71,11 @@ export default function MySideBar() {
                                     key={id}
                                     name={name}
                                     onClick={() => onChangeModelName({ id, name, mission, urlpic })}
-                                > {name}
+                                >
+                                    <img src={process.env.REACT_APP_API_URL + "/" + urlpic}
+                                        alt="imgmodel"
+                                    />
+                                    {name}
                                 </MenuItem>
                             ))}
                         </SubMenu>
@@ -73,7 +85,11 @@ export default function MySideBar() {
                                     key={id}
                                     name={name}
                                     onClick={() => onChangeModelName({ id, name, mission, urlpic })}
-                                > {name}
+                                >
+                                    <img src={process.env.REACT_APP_API_URL + "/" + urlpic}
+                                        alt="imgmodel"
+                                    />
+                                    {name}
                                 </MenuItem>
                             ))}
                         </SubMenu>
@@ -83,7 +99,11 @@ export default function MySideBar() {
                                     key={id}
                                     name={name}
                                     onClick={() => onChangeModelName({ id, name, mission, urlpic })}
-                                > {name}
+                                >
+                                    <img src={process.env.REACT_APP_API_URL + "/" + urlpic}
+                                        alt="imgmodel"
+                                    />
+                                    {name}
                                 </MenuItem>
                             ))}
                         </SubMenu>

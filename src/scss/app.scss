@@ -22,6 +22,13 @@ body {
     padding: 20px 0px;
   }
 
+  &__podtitle {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0px;
+    text-align: center;
+  }
+
   &__items {
     display: flex;
     flex-wrap: wrap;
@@ -94,6 +101,24 @@ body {
     }
   }
 
+  &__navescard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    margin: 30px 0px;
+    grid-row-gap: 30px;
+
+    @media (max-width: 1000px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 700px) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-row-gap: 10px;
+    }
+  }
+
+
   &__infopage {
     margin: 50px 0px;
   }
@@ -121,6 +146,7 @@ body {
   }
 }
 
+// Настройки экшен тизера запчастей
 .spec-tizer {
   h4 {
     padding-left: 2rem;
@@ -128,9 +154,17 @@ body {
   }
 }
 
+//настройка карусели каталога техники
+
+.img-section {
+  margin: 0 auto;
+}
+
 .carousel-inner img {
-  height: 400px !important;
-  width: 800px;
+  margin: 0 auto;
+  width: auto;
+  max-height: 400px !important;
+  //width: 800px;
 }
 
 .tizer-title {
@@ -147,7 +181,8 @@ body {
 
   .text_connection {
     display: flex;
-    font-size: 20px;
+    color: #fff;
+    font-size: 16px;
     margin-right: 15px;
     align-items: center;
   }
@@ -478,6 +513,182 @@ body {
   }
 }
 
+//Настройки страницы Запчасти
+.backgraund__parts {
+  background: #fff;
+}
+
+.partnavbar {
+  height: 60px;
+  background-color: #1A1A1A;
+
+  ul {
+    margin: 0 0;
+    padding: 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    justify-items: center;
+    height: 100%;
+    align-items: center;
+  }
+
+  li {
+    border-right: 1px solid #B0AB99;
+    width: 100%;
+    text-align: center;
+  }
+
+  li:last-child {
+    border-right: none;
+  }
+
+  a {
+    padding-bottom: 16px;
+    color: #B0AB99;
+
+    &:hover {
+      color: #DFD045;
+    }
+  }
+}
+
+.container__partspage {
+  width: 80%;
+  margin: 50px auto;
+
+  @media (max-width: 831px) {
+    width: 95%;
+  }
+}
+
+.advantage__card {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  padding: 50px 0;
+  margin: 20px 0 20px 0;
+  border-bottom: 1px solid #B0AB99;
+
+  @media (max-width: 700px) {
+    grid-template-columns: none;
+    justify-items: center;
+  }
+}
+
+.advantage__card:last-child {
+  border-bottom: none;
+}
+
+.advantage__img {
+  //background: #FCF9F0;
+  background-image: linear-gradient(to right top, #659b91, #6f957a, #7f8d66, #8f835a, #9d7759);
+  opacity: 0.5;
+  height: 150px;
+  width: 150px;
+  display: grid;
+  place-items: center;
+  border-radius: 96px;
+
+  @media (max-width: 700px) {
+    margin-bottom: 20px;
+  }
+}
+
+.advantage__info {
+  display: grid;
+  align-items: end;
+  margin-left: 80px;
+
+  @media (max-width: 700px) {
+    margin-left: 0;
+  }
+}
+
+.more__span {
+  font-size: 12px;
+  width: fit-content;
+  cursor: pointer;
+
+  img {
+    width: 16px;
+  }
+
+  span {
+    padding-right: 10px;
+  }
+}
+
+.active__more {
+  transform: rotate(180deg);
+}
+
+//Настройки страницы indexParts
+.text {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 50px;
+
+  &--tab {
+    margin-bottom: 20px;
+  }
+}
+
+//Настройка страницы filterPage
+.filter_page {
+  padding-bottom: 1px;
+
+}
+
+.filterImage {
+
+  width: 100%;
+  /*width: -moz-available;          WebKit-based browsers will ignore this. 
+    width: -webkit-fill-available;   Mozilla-based browsers will ignore this. 
+    width: fill-available; */
+
+}
+
+.ul__grand {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 30px;
+  padding-left: 0;
+
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  height: auto;
+  min-height: 160px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(to right top, #fefae0, #f9f7e2, #f5f4e5, #f1f0e7, #edede9);
+  -webkit-box-shadow: 0px 2px 14px 3px rgba(9, 10, 11, 0.1);
+  -moz-box-shadow: 0px 2px 14px 3px rgba(9, 10, 11, 0.1);
+  box-shadow: 0px 2px 14px 3px rgba(9, 10, 11, 0.1);
+}
+
+.ulTab {
+  margin-top: 50px;
+}
+
+// Настройка меню табов бутстрапа
+.nav-tabs .nav-link {
+  background-color: transparent !important;
+  color: black !important;
+}
+
+.nav-tabs .nav-link.active {
+  font-weight: bold;
+}
+
 //настройки страницы pkatalog
 .isnotmodel {
   margin: 5px;
@@ -490,11 +701,10 @@ body {
   }
 }
 
-.loginPage {
+.batton__setpart {
   display: flex;
-  height: 550px;
   justify-content: center;
-  align-items: center;
+  margin: 50px;
 }
 
 .showcase {
@@ -536,6 +746,13 @@ body {
   height: 600px;
 }
 
+.loginPage {
+  display: flex;
+  height: 550px;
+  justify-content: center;
+  align-items: center;
+}
+
 //редактор запчастей
 .newpart__page {
   background-image: linear-gradient(to right top, #dfd045, #90d96e, #2cd8a6, #00cfd6, #00c1ef, #39c0f3, #54c0f6, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
@@ -572,14 +789,82 @@ body {
   justify-content: center;
 }
 
+// Настройки экшн тизера запчастей
 .action__tizer {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #96B1AD;
+  height: 400px;
+  text-align: center;
+
+  @media (max-width: 720px) {
+    height: 300px;
+  }
+}
+
+.action__title {
+
+  h2 {
+    color: #fff;
+    font-size: 58px;
+  }
+
+  @media (max-width: 870px) {
+    h2 {
+      font-size: 48px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    h2 {
+      font-size: 38px;
+    }
+  }
+
+  @media (max-width: 570px) {
+    h2 {
+      font-size: 30px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    h2 {
+      font-size: 25px;
+    }
+  }
+}
+
+.action__text {
+  margin: 30px 0 40px 0;
+
+  p {
+    margin: 0 0;
+    color: #fff;
+    font-size: 18px;
+
+  }
+
+  @media (max-width: 720px) {
+    margin: 10px 0 0px 0;
+
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+.text__margin {
+  margin-top: 30px !important;
+
+  @media (max-width: 450px) {
+    margin: 0 0 !important;
+  }
+}
+
+.action__body {
+  display: flex;
   justify-content: space-evenly;
-  margin-top: 50px;
-  margin-bottom: 20px;
-  -webkit-box-shadow: 0px 2px 14px 3px rgba(9, 10, 11, 0.1);
-  -moz-box-shadow: 0px 2px 14px 3px rgba(9, 10, 11, 0.1);
-  box-shadow: 0px 2px 14px 3px rgba(9, 10, 11, 0.1);
 
   @media (max-width: 840px) {
     flex-direction: column;
@@ -714,4 +999,96 @@ body {
     margin: 0 10px 0 10px;
     font-size: calc(1.275rem + .3vw);
   }
+}
+
+//Настройки страницы навесного оборудования
+.naves__title {
+  display: flex;
+  /* padding-left: 2rem; */
+  /* font-weight: 800; */
+  margin: 15px 0 15px 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+//Настройки страницы информации о навесном оборудовании
+
+.benefit {
+  background-color: #fff;
+  padding-top: 10px;
+}
+
+.textline {
+  border-bottom: 1px solid #86857d;
+  padding-bottom: 30px;
+}
+
+.sectionimage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* img {
+    width: 400px;
+  } */
+
+  @media (max-width: 650px) {
+    img {
+      width: 200px;
+    }
+  }
+}
+
+.naves_info_tizer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 50px 0 50px 0;
+
+  img {
+    width: 250px;
+  }
+
+  div {
+    width: 400px;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+
+    img {
+      width: 300px;
+    }
+
+    div {
+      margin-top: 20px;
+      width: auto;
+    }
+  }
+}
+
+.benefit_li {
+  display: flex;
+  align-items: center;
+  padding: 0 0 !important;
+
+  img {
+    width: 40px;
+    margin-right: 10px;
+  }
+}
+
+.benefit_title {
+  // border-bottom: 1px solid #86857d;
+  //padding-bottom: 10px;
+
+  p {
+    color: #86857d;
+    margin-bottom: 0;
+  }
+}
+
+.table_image {
+  max-width: 100%;
+  height: auto;
 }

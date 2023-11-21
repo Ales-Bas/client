@@ -53,6 +53,15 @@
     }
   }
 
+  &--grey {
+    background-color: #282828;
+
+    &:hover,
+    &:active {
+      background-color: lighten($color: #282828, $amount: 10);
+    }
+  }
+
   &--outline {
     background-color: #fff;
     border-color: $orange;
@@ -135,7 +144,7 @@
     align-items: center;
     line-height: 23px;
     padding: 5px 20px;
-    background-color: #000000;
+    background-color: #181510;
     //width: 80px;
     grid-area: C;
 

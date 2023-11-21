@@ -13,7 +13,6 @@ export default function HomeItem(props) {
                     alt={props.title}
                 />
                 <h4 className="card-block__title">{props.title}</h4>
-
                 <p>{props.text}</p>
 
             </Link>

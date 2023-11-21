@@ -22,16 +22,14 @@
     align-items: center;
 
 
-    @media (max-width: 1049px) {
+    @media (max-width: 1176px) {
       grid-template-areas: "A A A A  A A A A  C C C C"
         "B B B B  B B B B  B B B B";
     }
 
-    @media (max-width: 646px) {
+    @media (max-width: 732px) {
       grid-template-areas: "B A C";
       grid-template-columns: 40px auto 0.1fr;
-
-
     }
   }
 
@@ -59,7 +57,7 @@
       color: #DFD045;
     }
 
-    @media (max-width:646px) {
+    @media (max-width:732px) {
       img {
         width: 50px;
       }

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './Search.module.scss'
 import { fetchSearchParts, setSearchtext } from '../../redux/slises/partSearchSlice';
 import { useDispatch } from 'react-redux';
-
+import { SEARCHPAGE_ROUTE } from '../../utils/consts';
 const SearchPkatalog = () => {
     const { searchPValue, setSearchPValue } = React.useContext(SearchPContext);
     const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const SearchPkatalog = () => {
     const sendSearch = () => {
         dispatch(setSearchtext(searchPValue));
         getSearchParts();
-        navigate(`/pkatalog/search`);
+        navigate(SEARCHPAGE_ROUTE);
         setSearchPValue('');
     };
 

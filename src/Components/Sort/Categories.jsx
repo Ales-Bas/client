@@ -18,10 +18,7 @@ function Categories({ value, onChangeCategory }) {
         categoryName: 'Колесные погрузчики DL',
         categorySearch: 'Колесный погрузчик DL'
     },
-    {
-        categoryName: 'Навесное оборудование',
-        categorySearch: 'Навесное оборудование'
-    }]
+    ]
 
     return (
         <div className="categories">

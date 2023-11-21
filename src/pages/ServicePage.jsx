@@ -62,7 +62,7 @@ export default function ServicePage() {
                             <img className='img__telephone' src={emailSvg} alt='Иконка e-mail' />
                             <a href="mailto:servicem@specavtobat.ru&subject=Запрос в отдел сервиса">servicem@specavtobat.ru</a>
                             <img className='img__telephone' src={telephoneSvg} alt='Иконка телефона' />
-                            <a href="tel:+79149375197">+7-914-937-51-97</a>
+                            <a href="tel:+79149375191">+7-914-937-51-91</a>
                             <img className='img__telephone' src={emailSvg} alt='Иконка e-mail' />
                             <a href="mailto:servicev@specavtobat.ru&subject=Запрос в отдел сервиса">servicev@specavtobat.ru</a>
                         </div>
@@ -73,7 +73,7 @@ export default function ServicePage() {
                         <div className="button button--infopage service__row" onClick={() => setModalVisible(true)}>Оставить заявку</div>
 
                         <div>
-                            <ConnectionModal show={modalVisible} onHide={() => setModalVisible(false)} />
+                            <ConnectionModal show={modalVisible} onHide={() => setModalVisible(false)} topic="Отправлено со страницы сервис" />
                         </div>
                     </div>
                     <div className="service__teazer__img">

@@ -1,6 +1,5 @@
 export const HOME_ROUTE = '/';
 export const ADMIN_ROUTE = '/admin';
-export const PKATALOG_ROUTE = '/pkatalog';
 export const TKATALOG_ROUTE = '/tkatalog';
 export const CART_ROUTE = '/cart';
 export const TYPEPART_ROUTE = '/typepart';
@@ -9,5 +8,11 @@ export const LOGIN_ROUTE = '/login';
 export const REGISTRATION_ROUTE = '/registration';
 export const COMPANY_ROUTE = '/company';
 export const SERVICE_ROUTE = '/service';
-export const SEARCHPAGE_ROUTE = '/pkatalog/search';
-
+export const SEARCHPAGE_ROUTE = '/search';
+export const PARTS_ROUTE = '/parts';
+export const PKATALOG_ROUTE = 'pkatalog';
+export const PARTS_FILTER_ROUTE = 'filter';
+export const PARTS_OIL_ROUTE = 'oil';
+export const PARTS_INDEX_ROUTE = "index";
+export const OPTIONAL_ROUTE = "/optional";
+export const OPTIONAL_INFO_ROUTE = "/optional/info";

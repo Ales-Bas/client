@@ -10,7 +10,7 @@ const nameRegExp = /^[а-яё -]+$/i
 const phoneRegExp = /^((8|\+7)[- ]?)?(\(?\d{3}\)?[- ]?)?[\d\- ]{7,10}$/
 const comentRegExp = /^[?!,.()а-яА-ЯёЁ0-9\s]+$/
 
-export default function ConnectionModal({ show, onHide }) {
+export default function ConnectionModal({ show, onHide, topic }) {
     const { Formik } = formik;
     return (
         <Modal
@@ -31,6 +31,7 @@ export default function ConnectionModal({ show, onHide }) {
                         phone: '',
                         email: '',
                         coment: '',
+                        topic: topic,
                         acceptedTerms: false, // added for our checkbox
                     }}
                     validationSchema={Yup.object({
@@ -54,7 +55,7 @@ export default function ConnectionModal({ show, onHide }) {
                     onSubmit={(values) => {
                         setTimeout(() => {
                             onHide(onHide)
-                            axios.post(`https://web-prod.online/api/connection`, values)
+                            axios.post(`https://develonbdb.ru/api/connection`, values)
                                 .then((res) => {
                                     alert('Ваше обращение успешно добавлено.');
                                 });

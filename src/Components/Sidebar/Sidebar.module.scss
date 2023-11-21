@@ -1,4 +1,15 @@
 .root {
     width: 300px !important;
 
+    img {
+        width: 60px !important;
+        // height: fit-content !important;
+        padding-right: 5px;
+    }
+
+    a {
+
+        padding-left: 5px !important;
+        // border-bottom: 1px solid blue;
+    }
 }

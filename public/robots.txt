@@ -1,3 +1,21 @@
-
+User-agent: Yandex
+Disallow: /admin
+Disallow: /cart
+Disallow: /typepart
+Disallow: /login
+Disallow: /registration
+Disallow: /search
+User-agent: Googlebot
+Disallow: /admin
+Disallow: /cart
+Disallow: /typepart
+Disallow: /login
+Disallow: /registration
+Disallow: /search
 User-agent: *
-Disallow: /
+Disallow: /admin
+Disallow: /cart
+Disallow: /typepart
+Disallow: /login
+Disallow: /registration
+Disallow: /search

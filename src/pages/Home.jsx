@@ -23,13 +23,13 @@ export default function Home() {
                 </div >
             </div>
             <div className='container__my'>
-                <ActionTizer />
                 <div className="content__items">
                     <HomeItem title='Каталог техники Doosan' image={menuItem_tk} type="/tkatalog" text={description_tk} />
-                    <HomeItem title='Каталог запчастей Doosan' image={menuItem_pk} type="/pkatalog" text={description_pk} />
+                    <HomeItem title='Каталог запчастей Doosan' image={menuItem_pk} type="/parts" text={description_pk} />
                     <HomeItem title='Сервис' image={menuItem_servis} type="/service" text={description_servis} />
                 </div>
             </div>
+            <ActionTizer />
         </section>
     )
 }
