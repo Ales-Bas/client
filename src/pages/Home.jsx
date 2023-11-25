@@ -5,9 +5,9 @@ import menuItem_pk from '../assets/img/menuItem_pk.jpeg';
 import menuItem_servis from '../assets/img/menuItem_servis.jpeg'
 import ActionTizer from '../Components/ActionTizer';
 
-const description_tk = "Поставка строительной техники Doosan, индивидуальный подход к каждому клиенту, возможна поставка нестандартных комплектующих.";
-const description_pk = "Оригинальные запчасти Doosan  в наличии и под заказ.";
-const description_servis = "Предоставляем качественный сервис, обслуживание и ремонт техники Doosan.";
+const description_tk = "Поставка строительной техники Develon, индивидуальный подход к каждому клиенту, возможна поставка нестандартных комплектующих.";
+const description_pk = "Оригинальные запчасти Develon  в наличии и под заказ.";
+const description_servis = "Предоставляем качественный сервис, обслуживание и ремонт техники Develon.";
 
 export default function Home() {
     return (
@@ -24,8 +24,8 @@ export default function Home() {
             </div>
             <div className='container__my'>
                 <div className="content__items">
-                    <HomeItem title='Каталог техники Doosan' image={menuItem_tk} type="/tkatalog" text={description_tk} />
-                    <HomeItem title='Каталог запчастей Doosan' image={menuItem_pk} type="/parts" text={description_pk} />
+                    <HomeItem title='Каталог техники Develon' image={menuItem_tk} type="/tkatalog" text={description_tk} />
+                    <HomeItem title='Каталог запчастей Develon' image={menuItem_pk} type="/parts/pkatalog" text={description_pk} />
                     <HomeItem title='Сервис' image={menuItem_servis} type="/service" text={description_servis} />
                 </div>
             </div>

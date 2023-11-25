@@ -8,6 +8,7 @@ import InfoPage from './pages/InfoPage';
 import ServicePage from './pages/ServicePage';
 import CompanyPage from './pages/CompanyPage';
 import OptionalPage from './pages/OptionalPage';
+
 import {
     ADMIN_ROUTE,
     CART_ROUTE,
@@ -26,7 +27,8 @@ import {
     PARTS_OIL_ROUTE,
     PARTS_INDEX_ROUTE,
     OPTIONAL_ROUTE,
-    OPTIONAL_INFO_ROUTE
+    OPTIONAL_INFO_ROUTE,
+    NOTPAGE_ROUTE
 } from './utils/consts';
 import AdminPage from './pages/AdminPage';
 import AuthPage from './pages/AuthPage';
@@ -36,6 +38,7 @@ import Filter from "./pages/Parts Page/Filter";
 import Oil from './pages/Parts Page/Oil';
 import IndexParts from './pages/Parts Page/IndexParts';
 import OptionalInfoPage from './pages/OptionalInfoPage';
+import NotPage from './pages/NotPage';
 
 export const authRoutes = [
     {
@@ -115,6 +118,10 @@ export const publicRoutes = [
     {
         path: OPTIONAL_INFO_ROUTE + '/:id',
         Component: <OptionalInfoPage />
+    },
+    {
+        path: NOTPAGE_ROUTE,
+        Component: <NotPage />
     },
 
 ]

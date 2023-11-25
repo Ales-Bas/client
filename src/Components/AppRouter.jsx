@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { authRoutes, publicRoutes } from '../router';
-import { HOME_ROUTE } from '../utils/consts';
+import { NOTPAGE_ROUTE } from '../utils/consts';
 import { useSelector } from 'react-redux';
 import IndexParts from '../pages/Parts Page/IndexParts';
 
@@ -24,7 +24,7 @@ export default function AppRouter() {
                 </Route>
             )}
 
-            <Route path="*" element={<Navigate to={HOME_ROUTE} replace />} />
+            <Route path="*" element={<Navigate to={NOTPAGE_ROUTE} replace status={404} />} />
         </Routes>
     )
 }

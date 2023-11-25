@@ -16,3 +16,4 @@ export const PARTS_OIL_ROUTE = 'oil';
 export const PARTS_INDEX_ROUTE = "index";
 export const OPTIONAL_ROUTE = "/optional";
 export const OPTIONAL_INFO_ROUTE = "/optional/info";
+export const NOTPAGE_ROUTE = "/notpage";

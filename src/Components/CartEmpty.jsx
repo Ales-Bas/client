@@ -8,11 +8,10 @@ export default function CartEmpty() {
                 <span>😕</span>
                 <h2>Список пуст</h2>
                 <p>Перейдите в каталог, что бы найти запчасти</p>
-                <Link to='/pkatalog' className='button button--black'>
+                <Link to='/parts/pkatalog' className='button button--black'>
                     <span>Выбрать</span>
                 </Link>
             </div>
         </div>
     )
 }
-
