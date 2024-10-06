@@ -5,6 +5,7 @@ import { fetchTehCard, setCategoryId, setCategorySearch, setCurrentPage } from '
 import TehCard from '../Components/CardTK/CardTK';
 import Categories from '../Components/Sort/Categories';
 import Pages from '../Components/Pages';
+import { Helmet } from "react-helmet";
 
 export default function TKatalog() {
     const dispatch = useDispatch();
@@ -32,10 +33,14 @@ export default function TKatalog() {
     React.useEffect(() => {
         window.scrollTo(0, 0);
         getTehCard();
-    }, [categorySearch, currentPage,]);
+    }, [categorySearch, currentPage]);
 
     return (
         <div className="container__my">
+            <Helmet>
+                <title>Каталог техники Develon</title>
+                <meta name="description" content="Купить экскаватор Develon (Doosan), купить фронтальный погрузчик девелон в Иркутской области. Звоните: +7-983-418-68-76" />
+            </Helmet>
             <h2 className="content__title">Каталог техники DEVELON (Doosan)</h2>
             <div className="content__top">
                 <Categories value={categoryId} onChangeCategory={onChangeCategory} />

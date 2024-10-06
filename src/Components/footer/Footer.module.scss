@@ -27,11 +27,22 @@
 
     @media (max-width: 750px) {
         flex-direction: column;
+
+        .footer_contact {
+            margin-bottom: 5px;
+        }
+    }
+
+    iframe {
+        @media (max-width: 400px) {
+            width: 360px;
+            margin-top: 10px;
+        }
     }
 }
 
 .footer_contact {
-
+    margin-bottom: 5px;
     position: relative;
 
     img {
@@ -65,4 +76,10 @@
         margin: 0 10px 0 10px;
         font-size: calc(1.275rem + .3vw);
     }
+}
+
+.footer_basweblink {
+    display: flex;
+    height: 30px;
+    justify-content: center;
 }

@@ -4,6 +4,7 @@ import menuItem_tk from '../assets/img/menuItem_tk.jpeg';
 import menuItem_pk from '../assets/img/menuItem_pk.jpeg';
 import menuItem_servis from '../assets/img/menuItem_servis.jpeg'
 import ActionTizer from '../Components/ActionTizer';
+import { Helmet } from "react-helmet";
 
 const description_tk = "Поставка строительной техники Develon, индивидуальный подход к каждому клиенту, возможна поставка нестандартных комплектующих.";
 const description_pk = "Оригинальные запчасти Develon  в наличии и под заказ.";
@@ -12,6 +13,10 @@ const description_servis = "Предоставляем качественный 
 export default function Home() {
     return (
         <section className='main__home'>
+            <Helmet>
+                <title>Спецтехника DEVELON (Doosan) - ООО СПЕЦАВТОБАТ</title>
+                <meta name="description" content="Официальный дистрибьютор Develon на территории РФ. Купить гусеничные и колесные экскаваторы, фронтальные погрузчики. Запчасти, навесное оборудование и сервис." />
+            </Helmet>
             <div className='main-background'>
                 <div className="container">
                     <div className="home__teaser">

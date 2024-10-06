@@ -5,6 +5,7 @@ import imageThree from '../assets/img/doosancompany4.jpeg';
 import telephoneSvg from '../assets/img/telephone_black.svg';
 import emailSvg from '../assets/img/emailicon_black.svg';
 import ConnectionModal from '../Components/modals/Connection';
+import { Helmet } from "react-helmet";
 
 export default function ServicePage() {
     const [modalVisible, setModalVisible] = React.useState(false);
@@ -13,6 +14,12 @@ export default function ServicePage() {
     }, []);
     return (
         <div className="container__my">
+            <Helmet>
+                <title>Ремонт и обслуживание спецтехники DEVELON (Doosan) - ООО СПЕЦАВТОБАТ</title>
+                <meta name="description" content="Сервисный центр оказывает услуги по техническому обслуживанию и ремонту в гарантийный и постгарантийный период.
+                            Для технического обслуживания спецтехники в Бодайбинском районе, открыт склад  запасных частей, расходных материалов,
+                            а также ГСМ. Проведение ТО осуществляется за один рабочий день в Сервисном центре или на выезде — на объекте заказчика. Звоните: +7-913-947-64-59" />
+            </Helmet>
             <h2 className="content__title">Сервисное обслуживание DEVELON (DOOSAN)</h2>
             <div className="service__content">
                 <div className="service__teazer">

@@ -5,6 +5,7 @@ Disallow: /typepart
 Disallow: /login
 Disallow: /registration
 Disallow: /search
+Disallow: /notpage
 User-agent: Googlebot
 Disallow: /admin
 Disallow: /cart
@@ -12,6 +13,7 @@ Disallow: /typepart
 Disallow: /login
 Disallow: /registration
 Disallow: /search
+Disallow: /notpage
 User-agent: *
 Disallow: /admin
 Disallow: /cart
@@ -19,3 +21,4 @@ Disallow: /typepart
 Disallow: /login
 Disallow: /registration
 Disallow: /search
+Disallow: /notpage

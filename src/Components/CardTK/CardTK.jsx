@@ -6,7 +6,7 @@ function TehCard({ id, model, mass, powereng, buckvol, urlimg, mission }) {
     const navigate = useNavigate();
 
     const selectTehCard = (obj) => {
-        navigate(`/infopage/${obj.id}`);
+        navigate(`/tkatalog/infopage/${obj.id}`);
     };
 
     return (
@@ -14,7 +14,7 @@ function TehCard({ id, model, mass, powereng, buckvol, urlimg, mission }) {
             <div onClick={() => selectTehCard({ id })} className="teh-card">
                 <img
                     className="teh-card__image"
-                    src={process.env.REACT_APP_API_URL + "/" + `${urlimg}`} //https://web-prod.online
+                    src={process.env.REACT_APP_API_URL + `/${urlimg}`}
                     alt="ModelImg"
                 />
                 <h4 className="teh-card__title">{model}</h4>

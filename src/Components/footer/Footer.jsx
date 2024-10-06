@@ -2,6 +2,7 @@ import React from 'react';
 import telephoneSvg from '../../assets/img/telephone.svg';
 import emailSvg from '../../assets/img/emailIcon.svg';
 import mapPng from '../../assets/img/map_icon.png';
+import basWebSvg from '../../assets/img/linkBasWeb.svg'
 import styles from './Footer.module.scss';
 
 export default function Footer() {
@@ -35,8 +36,6 @@ export default function Footer() {
                     </div>
                 </div>
 
-
-
                 <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa5ed90bbf4cd821ac7351ddfe4d8c4d7bc54f6dfbdf208fb943eeae3fdbddac1&amp;source=constructor"
                     width="400"
                     height="360"
@@ -44,6 +43,9 @@ export default function Footer() {
                     title="map">
                 </iframe>
             </div>
+            <a href="https://www.basweb.ru" className={styles.footer_basweblink}>
+                <img src={basWebSvg} alt='Иконка baswebstudio' />
+            </a>
         </footer>
     )
 }

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchNavesCard } from '../redux/slises/navesCardSlice';
 import SkeletonN from '../Components/NavesCard/SkeletonN';
 import NavesCard from '../Components/NavesCard/NavesCard';
+import { Helmet } from "react-helmet";
 
 export default function OptionalPage() {
     const dispatch = useDispatch();
@@ -23,6 +24,10 @@ export default function OptionalPage() {
 
     return (
         <div className="optionalpage">
+            <Helmet>
+                <title>Навесное оборудование DEVELON (Doosan) - ООО СПЕЦАВТОБАТ</title>
+                <meta name="description" content="Навесное оборудование Doosan всех моделей и видов экскаваторов и погрузчиков Develon (Doosan). Широкий спектр дополнительного оборудования всех видов из наличия и под заказ. Звоните: +7-983-418-68-76" />
+            </Helmet>
             <div className="action__tizer">
                 <div className="action__title">
                     <h2>Навесное оборудование DEVELON</h2>
