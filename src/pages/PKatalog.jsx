@@ -44,7 +44,7 @@ export default function PKatalog() {
     return (
         <div className="filter_page">
             <div className='container__my'>
-                <h2 className="content__title">Каталог запчастей DEVELON (Doosan)</h2>
+                <h2 className="content__title">Каталог запчастей DEVELON</h2>
                 <div className={styles.root}>
                     <MySideBar />
                     {isSetModel ? (

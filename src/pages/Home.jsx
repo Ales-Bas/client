@@ -14,7 +14,7 @@ export default function Home() {
     return (
         <section className='main__home'>
             <Helmet>
-                <title>Спецтехника DEVELON (Doosan) - ООО СПЕЦАВТОБАТ</title>
+                <title>Спецтехника DEVELON - ООО СПЕЦАВТОБАТ</title>
                 <meta name="description" content="Официальный дистрибьютор Develon на территории РФ. Купить гусеничные и колесные экскаваторы, фронтальные погрузчики. Запчасти, навесное оборудование и сервис." />
             </Helmet>
             <div className='main-background'>
@@ -22,8 +22,8 @@ export default function Home() {
                     <div className="home__teaser">
                         <h1 className="teaser__title">СПЕЦАВТОБАТ</h1>
                         <span className='accent-bar'></span>
-                        <p>Официальный дилер и сервис-дилер ООО "Трансмехсервис" дистрибъютера DEVELON
-                            (DOOSAN INFRACORE) на территории Российской Федерации.</p>
+                        <p>Официальный дилер и сервис-дилер ООО "Трансмехсервис" дистрибьютора DEVELON
+                            (HD HYUNDAI INFRACORE) на территории Российской Федерации.</p>
                     </div>
                 </div >
             </div>
